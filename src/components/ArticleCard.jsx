@@ -12,7 +12,10 @@ export const ArticleCard = ({ article }) => {
         <img src={article.article_img_url} alt={article.title}></img>
       </div>
       <div className="article-votes">
-        <p>{article.votes}</p>
+        <p>Votes: {article.votes}</p>
+      </div>
+      <div className="article-comments">
+        <p>Comments: {article.comment_count}</p>
       </div>
     </div>
   );
