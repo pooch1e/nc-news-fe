@@ -1,11 +1,19 @@
-export const ArticleCard = ({article}) => {
+export const ArticleCard = ({ article }) => {
   return (
-    <div className="article-content">
-      <h2>{article.title}</h2>
-      <p>{article.author}</p>
-      <p>{article.topic}</p>
-      <p>{article.article_img_url}</p>
-      <p>{article.votes}</p>
+    <div className="article-content-container">
+      <div className="article-title">
+        <h2>{article.title}</h2>
+      </div>
+      <div className="article-content">
+        <p>{article.author}</p>
+        <p>{article.topic}</p>
+      </div>
+      <div className="article-img">
+        <img src={article.article_img_url} alt={article.title}></img>
+      </div>
+      <div className="article-votes">
+        <p>{article.votes}</p>
+      </div>
     </div>
   );
 };
