@@ -1,5 +1,5 @@
 export const getArticles = async () => {
-  const url = 'https://nc-news-api-qa14.onrender.com/api/articles?limit=200';
+  const url = 'https://nc-news-api-qa14.onrender.com/api/articles';
 
   try {
     const articles = await fetch(url);
@@ -14,4 +14,3 @@ export const getArticles = async () => {
     console.log('err from getArticles util', err.message);
   }
 };
-

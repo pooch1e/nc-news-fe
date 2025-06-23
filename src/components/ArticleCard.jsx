@@ -1,8 +1,8 @@
-export const Article = (article) => {
+export const ArticleCard = ({article}) => {
   return (
     <div className="article-content">
       <h2>{article.title}</h2>
-      <p>{article.Author}</p>
+      <p>{article.author}</p>
       <p>{article.topic}</p>
       <p>{article.article_img_url}</p>
       <p>{article.votes}</p>
