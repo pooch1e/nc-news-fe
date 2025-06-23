@@ -11,4 +11,24 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --border-debug: 1px solid red; 
+}
+
+/* Navbar */
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  border: var(--border-debug);
+}
+
+/* Articles */
+.articles {
+  border: var(--border-debug);
+}
+
+.article-card {
+  /* for debug */
+  border: 1px solid blue;
+  margin: 1rem;
 }
