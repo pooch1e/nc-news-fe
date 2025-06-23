@@ -25,11 +25,17 @@ export const ArticlesPage = () => {
   if (isLoading) {
     return <p>Loading....</p>
   }
-
+  let articlesWithDate = articleList.map((article) => {
+    let d = new Date(article.created_at)
+    return {
+      ...article,
+      formatted_date: d.toLocaleDateString()
+    }
+  })
   return (
     <section className="articles" id="articles-section">
       <div id="article-list">
-        <ArticleStyles articles={articleList} />
+        <ArticleStyles articles={articlesWithDate} />
       </div>
     </section>
   );

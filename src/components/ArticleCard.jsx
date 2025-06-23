@@ -17,6 +17,9 @@ export const ArticleCard = ({ article }) => {
       <div className="article-comments">
         <p>Comments: {article.comment_count}</p>
       </div>
+      <div className="article-createdAt">
+        <p>Date Created: {article.formatted_date}</p>
+      </div>
     </div>
   );
 };
