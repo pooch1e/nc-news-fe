@@ -11,6 +11,10 @@
   --box-shadow-card: 0px 0.2px 0.8px hsl(0deg 0% 0% / 0.49);
 }
 
+main {
+  padding-bottom: 2rem;
+}
+
 /* Navbar */
 
 .header-container {
@@ -74,4 +78,21 @@
 .article-comments {
   display: flex;
   justify-content: start;
+}
+
+
+
+/* Footer */
+
+.footer-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff; 
+  padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid #ccc; /* optional styling */
+  z-index: 1000;
 }
