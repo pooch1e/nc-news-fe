@@ -1,25 +1,35 @@
+import { Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
+import { Votes } from './Votes';
 export const ArticleCard = ({ article }) => {
   return (
-    <div className="article-content-container">
-      <div className="article-title">
-        <h2>{article.title}</h2>
-      </div>
-      <div className="article-content">
-        <p>{article.author}</p>
-        <p>{article.topic}</p>
-      </div>
-      <div className="article-img">
-        <img src={article.article_img_url} alt={article.title}></img>
-      </div>
-      <div className="article-votes">
-        <p>Votes: {article.votes}</p>
-      </div>
-      <div className="article-comments">
-        <p>Comments: {article.comment_count}</p>
-      </div>
-      <div className="article-createdAt">
-        <p>Date Created: {article.formatted_date}</p>
-      </div>
-    </div>
+    <Card className="article-content-container">
+      <Card.Body>
+        <div className="article-title card-title">
+          <Card.Title>{article.title}</Card.Title>
+        </div>
+
+          <div className="article-content">
+            <p>Author: {article.author}</p>
+            <p>Topic: {article.topic}</p>
+          </div>
+  
+        <div className="article-img">
+          <Card.Img src={article.article_img_url} alt={article.title} />
+        </div>
+
+        <div className="article-votes">
+          <Votes votes={article.votes} />
+        </div>
+
+          <div className="article-comments">
+            <Button>Comments: {article.comment_count}</Button>
+          </div>
+          <div className="article-createdAt">
+            <p>Date Created: {article.formatted_date}</p>
+          </div>
+  
+      </Card.Body>
+    </Card>
   );
 };

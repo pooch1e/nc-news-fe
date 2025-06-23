@@ -1,4 +1,5 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { ArticlesPage } from './components/ArticlesPage';
 import { Header } from './components/Header';
 
