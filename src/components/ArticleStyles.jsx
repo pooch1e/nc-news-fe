@@ -1,11 +1,10 @@
-import { ArticleCard } from "./ArticleCard";
+import { ArticleCard } from './ArticleCard';
 
-export const ArticleStyles = ({ articles } ) => {
-  
+export const ArticleStyles = ({ articles }) => {
   return (
     <div className="article-card">
       {articles.map((article) => {
-        return <ArticleCard key={article.article_id} article={article} />
+        return <ArticleCard key={article.article_id} article={article} />;
       })}
     </div>
   );

@@ -15,9 +15,11 @@
 
 .header-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   border: var(--border-debug);
 }
+
 
 /* Articles */
 .articles {
@@ -67,4 +69,9 @@
   justify-content: space-around;
   margin: 0.5rem;
   align-items: center;
+}
+
+.article-comments {
+  display: flex;
+  justify-content: start;
 }

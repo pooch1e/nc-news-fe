@@ -9,11 +9,11 @@ export const ArticleCard = ({ article }) => {
           <Card.Title>{article.title}</Card.Title>
         </div>
 
-          <div className="article-content">
-            <p>Author: {article.author}</p>
-            <p>Topic: {article.topic}</p>
-          </div>
-  
+        <div className="article-content">
+          <p>Author: {article.author}</p>
+          <p>Topic: {article.topic}</p>
+        </div>
+
         <div className="article-img">
           <Card.Img src={article.article_img_url} alt={article.title} />
         </div>
@@ -22,13 +22,12 @@ export const ArticleCard = ({ article }) => {
           <Votes votes={article.votes} />
         </div>
 
-          <div className="article-comments">
-            <Button>Comments: {article.comment_count}</Button>
-          </div>
-          <div className="article-createdAt">
-            <p>Date Created: {article.formatted_date}</p>
-          </div>
-  
+        <div className="article-comments">
+          <Button variant="dark">Comments: {article.comment_count}</Button>
+        </div>
+        <div className="article-createdAt">
+          <p>Date Created: {article.formatted_date}</p>
+        </div>
       </Card.Body>
     </Card>
   );
