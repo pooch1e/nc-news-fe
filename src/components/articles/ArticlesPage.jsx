@@ -1,16 +1,14 @@
 import { ArticleStyles } from './ArticleStyles';
 import { useState, useEffect } from 'react';
-import {getArticles} from '../utils/getArticles'
+import { getArticles } from '../../utils/getArticles';
 export const ArticlesPage = () => {
-  
   const [articleList, setArticleList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-
     getArticles()
       .then((result) => {
-        const {articles} = result;
+        const { articles } = result;
         console.log(result.articles);
         setIsLoading(false);
         setArticleList(articles);
@@ -20,18 +18,16 @@ export const ArticlesPage = () => {
       });
   }, []);
 
-
-
   if (isLoading) {
-    return <p>Loading....</p>
+    return <p>Loading....</p>;
   }
   let articlesWithDate = articleList.map((article) => {
-    let d = new Date(article.created_at)
+    let d = new Date(article.created_at);
     return {
       ...article,
-      formatted_date: d.toLocaleDateString()
-    }
-  })
+      formatted_date: d.toLocaleDateString(),
+    };
+  });
   return (
     <section className="articles" id="articles-section">
       <div id="article-list">
