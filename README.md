@@ -6,3 +6,5 @@
 - fix styling/layout
 - implement votes
 - implement navbar
+  - fix aside nav styles
+
