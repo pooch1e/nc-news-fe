@@ -56,6 +56,7 @@ main {
   justify-content: space-between;
   font-style: italic;
 }
+/* Only works on desktop and is ugly - change this */
 .article-content-container:hover {
   border: var(--border-debug);
   box-shadow: 10px 0px 10px black;
@@ -69,6 +70,8 @@ main {
   height: 10rem;
   width: 100%;
 } */
+
+/* VOTES */
 
 .votes-container {
   display: flex;
@@ -90,6 +93,11 @@ main {
 .article-comments > button {
   font-size: var(--button-size);
 }
+
+/* SINGLE ARTICLE PAGE */
+/* #single-article-title {
+  
+} */
 
 /* Footer */
 

@@ -1,7 +1,7 @@
 import { ArticleStyles } from './ArticleStyles';
 import { useState, useEffect } from 'react';
 import { getArticles } from '../../utils/getArticles';
-export const Articles = () => {
+export const FetchArticles = () => {
   const [articleList, setArticleList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 

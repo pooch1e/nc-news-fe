@@ -38,7 +38,7 @@ export const Article = () => {
   return (
     <Card className="article-content-container">
       <Card.Body>
-        <div className="article-title card-title">
+        <div className="article-title card-title" id='single-article-title'>
           <Card.Title>{article.title}</Card.Title>
         </div>
 

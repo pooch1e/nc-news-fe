@@ -1,15 +1,12 @@
-
-import { Articles} from "../articles/Articles"
+import { FetchArticles } from '../articles/FetchArticles';
 
 export const Layout = () => {
-
   return (
     <>
-
-          <main>
-            <h2>Articles Area</h2>
-            <Articles />
-          </main>
-        </>
-  )
-}
+      <main>
+        <h2>Articles Area</h2>
+        <FetchArticles />
+      </main>
+    </>
+  );
+};
