@@ -1,7 +1,7 @@
 export const Navbar = () => {
   return (
 
-    <nav>
+    <nav className="navigation">
       <ul>
         <li>item1</li>
         <li>item2</li>
