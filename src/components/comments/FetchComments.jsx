@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { getCommentsbyArticleId } from "../../utils/getCommentsById";
+import { CommentStyles } from "./CommentStyles";
 export const FetchComments = ({article_id}) => {
 const [comments, setComments] = useState([]);
 const [isLoading, setLoading] = useState(true);
@@ -27,6 +28,10 @@ useEffect(() => {
 
 
   return (
-
+        <section className="comments" id="comments-section">
+          <div id="comment-list">
+            <CommentStyles comments={comments} />
+          </div>
+        </section>
   )
 }

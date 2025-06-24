@@ -107,10 +107,10 @@ main {
   left: 0;
   width: 100%;
   background-color: #fff;
-  padding: 1rem;
+  padding: 0.5rem;
   display: flex;
   justify-content: space-around;
-  border-top: 1px solid #ccc; /* optional styling */
+  border-top: 1px solid #ccc;
   z-index: 1000;
 }
 
