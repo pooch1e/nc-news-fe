@@ -11,6 +11,7 @@ export const Votes = ({ id, votes }) => {
   // handle votes here
   // will have to make patch request...
 
+  // for debug
   const handlePatchRequest = () => {
     if (voteType === 'comment') {
       console.log('comment vote was clicked');
@@ -19,24 +20,24 @@ export const Votes = ({ id, votes }) => {
     }
   };
 
-  const handleUpvote = (e) => {
+  const handleUpvote = (up) => {
     //make update request?
     //provide instant feedback
-    setCurrentVotes(votes + 1);
+    setCurrentVotes(votes + up);
   };
 
-  const handleDownVote = (e) => {
+  const handleDownVote = (down) => {
     //make update request?
     //provide instant feedback
-    setCurrentVotes(votes + 1);
+    setCurrentVotes(votes + down);
   };
 
   return (
     <>
       <div className="votes-container">
-        <Button onClick={handlePatchRequest}>Upvote</Button>
+        <Button onClick={handleUpvote(1)}>Upvote</Button>
         <p>Votes: {votes}</p>
-        <Button>Downvote</Button>
+        <Button onClick={handleDownVote(-1)}>Downvote</Button>
       </div>
     </>
   );
