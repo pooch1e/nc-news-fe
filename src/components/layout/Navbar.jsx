@@ -1,3 +1,5 @@
+import { Hamburger } from "./Hamburger"
+
 export const Navbar = () => {
   return (
 
@@ -7,6 +9,10 @@ export const Navbar = () => {
         <li>item2</li>
         <li>item3</li>
       </ul>
+
+      <div className="hamburger">
+        <Hamburger />
+      </div>
     </nav>
   )
 }
