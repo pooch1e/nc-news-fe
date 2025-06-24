@@ -1,6 +1,7 @@
 import { Button } from 'react-bootstrap';
 import { Card } from 'react-bootstrap';
 import { Votes } from './Votes';
+import { Link } from 'react-router-dom';
 export const ArticleCard = ({ article }) => {
   return (
     <Card className="article-content-container">
@@ -15,7 +16,9 @@ export const ArticleCard = ({ article }) => {
         </div>
 
         <div className="article-img">
+          <Link to={`/articles/${article.article_id}`}>
           <Card.Img src={article.article_img_url} alt={article.title} />
+          </Link>
         </div>
 
         <div className="article-votes">
