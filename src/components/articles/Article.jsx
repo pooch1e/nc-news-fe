@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { getArticles } from '../../utils/getArticles';
 import { Button } from 'react-bootstrap';
 import { Card } from 'react-bootstrap';
+import { VoteTypeContext} from '../../context/VoteTypeContext';
 import { Votes } from './Votes';
 import { FetchComments } from '../comments/FetchComments';
 
@@ -33,7 +34,7 @@ export const Article = () => {
     return <p>Loading article...</p>;
   }
 
-  if (error === true) {
+  if (error) {
     return <p>Error loading article</p>;
   }
   return (
@@ -57,10 +58,11 @@ export const Article = () => {
             <div className="article-img">
               <Card.Img src={article.article_img_url} alt={article.title} />
             </div>
-
+            <VoteTypeContext.Provider value='article'>
             <div className="article-votes">
-              <Votes votes={article.votes} />
+              <Votes id={article.article_id} votes={article.votes} />
             </div>
+            </VoteTypeContext.Provider>
 
             <div className="article-comments">
               <Button variant="dark">Comments: {article.comment_count}</Button>
