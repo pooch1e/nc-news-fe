@@ -1,3 +1,4 @@
+import { CommentCard } from "./CommentCard";
 export const CommentStyles = ({ comments }) => {
   return (
     <div className="comment-card">
