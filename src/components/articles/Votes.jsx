@@ -11,13 +11,13 @@ export const Votes = ({ id, votes }) => {
   // will have to make patch request...
 
   // for debug
-  const handlePatchRequest = () => {
-    if (voteType === 'comment') {
-      console.log('comment vote was clicked');
-    } else {
-      console.log('article vote was clicked');
-    }
-  };
+  // const handlePatchRequest = () => {
+  //   if (voteType === 'comment') {
+  //     console.log('comment vote was clicked');
+  //   } else {
+  //     console.log('article vote was clicked');
+  //   }
+  // };
 
   const handleUpvote = async (up) => {
     //provide instant feedback
@@ -33,10 +33,18 @@ export const Votes = ({ id, votes }) => {
     }
   };
 
-  const handleDownVote = (down) => {
-    //make update request?
+  const handleDownVote = async (down) => {
     //provide instant feedback
     setCurrentVotes((prev) => prev + down);
+    setError(null);
+    try {
+      //patch request
+      updateVoteById(id, down, voteType);
+    } catch (err) {
+      console.log(err);
+      setCurrentVotes((prev) => prev + 1);
+      setError(err);
+    }
   };
 
   return (
