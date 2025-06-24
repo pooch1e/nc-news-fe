@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { ArticlesPage } from './components/articles/ArticlesPage';
+import { Articles } from './components/articles/Articles';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 
@@ -10,7 +10,7 @@ function App() {
       <Header />
       <main>
         <h2>Articles Area</h2>
-        <ArticlesPage />
+        <Articles />
       </main>
       <footer>
         <Footer />
