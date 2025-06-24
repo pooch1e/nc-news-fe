@@ -23,13 +23,13 @@ export const Votes = ({ id, votes }) => {
   const handleUpvote = (up) => {
     //make update request?
     //provide instant feedback
-    setCurrentVotes(votes + up);
+    setCurrentVotes((prev) => prev + up);
   };
 
   const handleDownVote = (down) => {
     //make update request?
     //provide instant feedback
-    setCurrentVotes(votes + down);
+    setCurrentVotes((prev) => prev + down);
   };
 
   return (
