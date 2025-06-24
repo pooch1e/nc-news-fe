@@ -18,12 +18,12 @@ export const ArticleCard = ({ article }) => {
 
         <div className="article-img">
           <Link to={`/articles/${article.article_id}`}>
-          <Card.Img src={article.article_img_url} alt={article.title} />
+            <Card.Img src={article.article_img_url} alt={article.title} />
           </Link>
         </div>
 
         <div className="article-votes">
-          <Votes votes={article.votes} />
+          <Votes id={article.article_id} votes={article.votes} />
         </div>
 
         <div className="article-comments">
