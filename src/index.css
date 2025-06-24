@@ -96,6 +96,17 @@ main {
   margin: 1rem;
 }
 
+@media (min-width: 1250px) {
+    .article-card {
+    margin: 1rem;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 .article-content-container {
   padding: 10px;
   border-radius: 5px;
@@ -143,6 +154,16 @@ main {
   border-radius: 50px;
   font-size: 0.5rem;
 }
+
+.votes-container > .vote-count {
+  text-align: center;
+  min-width: 2ch; 
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+
 
 .article-comments {
   display: flex;

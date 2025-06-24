@@ -51,7 +51,9 @@ export const Votes = ({ id, votes }) => {
     <>
       <div className="votes-container">
         <Button onClick={() => handleUpvote(1)}>Upvote</Button>
-        <p>Votes: {currentVotes}</p>
+        <span className="vote-count">
+          <p>Votes: {currentVotes}</p>
+        </span>
         <Button onClick={() => handleDownVote(-1)}>Downvote</Button>
       </div>
     </>
