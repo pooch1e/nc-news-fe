@@ -1,5 +1,6 @@
 import { Button } from 'react-bootstrap';
 import { Card } from 'react-bootstrap';
+
 import { Votes } from './Votes';
 import { Link } from 'react-router-dom';
 export const ArticleCard = ({ article }) => {

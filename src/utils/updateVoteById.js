@@ -1,22 +1,28 @@
 // could take votes or comments ID
-export const updateVoteById = async (id, vote, isComment = null) => {
+export const updateVoteById = async (id, vote, type) => {
+  console.log('update called')
   //need check for votes or comment
   let baseUrl = `https://nc-news-api-qa14.onrender.com/api`
-  let commentIdUrl = `/comments/${id}`
-  let articleIdUrl = `/articles/${id}`
+  const url = type === 'comment' ? `${baseUrl}/comments/${id}` : `${baseUrl}/articles/${id}`
   //check if comment or article id then append to URL
-  if (isComment) {
-    baseUrl = baseUrl + commentIdUrl;
-  } else {
-    baseUrl = baseUrl + articleIdUrl;
-  }
+
   try {
-    const updateVotes = await fetch(baseUrl, {
+    const updateVotes = await fetch(url, {
       method: 'PATCH',
+      headers: {'Content-Type' : 'application/json'},
       body: JSON.stringify({inc_votes: vote})
     })
+  
+    if (!updateVotes.ok) {
+      throw new Error(`Failed to update votes: status${updateVotes.status}`)
+    }
+
+    const data = await updateVotes.json();
+    console.log(updateVotes.status)
+    console.log(data);
     
   } catch (err) {
     console.log(err)
+    throw err;
   }
 }
