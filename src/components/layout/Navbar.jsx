@@ -1,8 +1,13 @@
-import { Hamburger } from "./Hamburger"
-
+import { Hamburger } from './Hamburger';
+import { useState } from 'react';
 export const Navbar = () => {
-  return (
+  const [isOpen, setIsOpen] = useState(false);
 
+  const toggleHamburger = () => {
+    setIsOpen((prev) => !prev);
+    console.log('hamburger clicked');
+  };
+  return (
     <nav className="navigation">
       <ul>
         <li>item1</li>
@@ -11,8 +16,18 @@ export const Navbar = () => {
       </ul>
 
       <div className="hamburger">
-        <Hamburger />
+        <Hamburger onClick={toggleHamburger} />
       </div>
+
+      {isOpen && (
+        <aside className="side-nav">
+          <ul>
+            <li>Side Link 1</li>
+            <li>Side Link 2</li>
+            <li>Side Link 3</li>
+          </ul>
+        </aside>
+      )}
     </nav>
-  )
-}
+  );
+};

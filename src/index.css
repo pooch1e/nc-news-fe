@@ -26,11 +26,26 @@ main {
   border: var(--border-debug);
 }
 
-
+.header-container > h1 {
+  padding: 3px;
+  text-align: left;
+}
 
 .navbar-container {
   width: 100%;
   height: 30px;
+}
+.side-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #ffffff;
+  box-shadow: -2px 0 5px rgba(245, 244, 244, 0.3);
+  padding: 1rem;
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
 }
 
 .navigation ul {
@@ -53,7 +68,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2px; 
+  gap: 2px;
   cursor: pointer;
   z-index: 10;
   margin-left: 0.5em;
@@ -62,11 +77,13 @@ main {
 
 .burger {
   width: 32px;
-  height: 2px; 
+  height: 2px;
   background-color: black;
   border-radius: 2px;
   transition: all 0.3s ease;
 }
+
+
 
 /* Articles */
 .articles {
