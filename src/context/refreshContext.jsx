@@ -1,18 +1,13 @@
-import { createContext, useState, useContext } from 'react';
+import { createContext, useContext } from 'react';
+
 const RefreshContext = createContext();
 
-export const RefreshProvidor = ({ children }) => {
-  const [refreshCommentsKey, setRefreshCommentsKey] = useState(0);
-
-  const triggerRefresh = () => {
-    setRefreshCommentsKey((prev) => prev + 1);
-  };
-
-  return (
-    <RefreshContext.Provider value={{ refreshCommentsKey, triggerRefresh }}>
-      {children}
-    </RefreshContext.Provider>
-  );
+export const useRefresh = () => {
+  const context = useContext(RefreshContext);
+  if (!context) {
+    throw new Error('useRefresh must be used within a RefreshProvider');
+  }
+  return context;
 };
 
-export const useRefresh = () => useContext(RefreshContext);
+export { RefreshContext };
