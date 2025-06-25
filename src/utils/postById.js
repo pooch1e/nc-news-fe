@@ -1,5 +1,6 @@
-export const postCommentOrArticleById = async (id=null, username='tickle122', body, type) => {
+export const postCommentOrArticleById = async (id=null, body, type, username='tickle122') => {
   //hardcoded username for the moment
+  console.log(type, 'in post by id ')
   let baseUrl = `https://nc-news-api-qa14.onrender.com/api`;
   const url =
     type === 'comment'

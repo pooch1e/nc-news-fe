@@ -1,12 +1,8 @@
 import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { postCommentOrArticleById } from '../../utils/postById';
-import { useParams } from 'react-router-dom';
 export const PostForm = ({ type, onClose, id }) => {
-  
-  const [isLoading, setLoading] = useState(false);
-
-  
+  const [isError, setError] = useState(null);
 
   //create a form
 
@@ -27,20 +23,26 @@ export const PostForm = ({ type, onClose, id }) => {
     console.log('form submitted');
 
     try {
-      postCommentOrArticleById();
+      await postCommentOrArticleById(id, value, type);
     } catch (err) {
       console.log(err);
-      throw err;
-    }
-
-    setValue('');
-
-    if (onClose) {
-      onClose();
+      setError(true);
     }
   };
 
-  //on submit, pass data to post comment api function
+  setValue('');
+
+  if (onClose) {
+    onClose();
+  }
+
+  if (isError) {
+    return (
+      <Container className="d-flex justify-content-center align-items-center">
+        <p className="mt-3">We're Sorry, something has gone wrong...</p>
+      </Container>
+    );
+  }
 
   return (
     <>
