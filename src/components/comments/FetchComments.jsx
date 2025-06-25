@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import { getCommentsbyArticleId } from "../../utils/getCommentsById";
 import { CommentStyles } from "./CommentStyles";
-export const FetchComments = ({article_id}) => {
+export const FetchComments = ({article_id, triggerReload}) => {
+
 const [comments, setComments] = useState([]);
 const [isLoading, setLoading] = useState(true);
 const [isError, setError] = useState(null);
@@ -17,7 +18,7 @@ useEffect(() => {
     setError(err);
   })
 
-}, [article_id])
+}, [article_id, triggerReload])
 
   if (isLoading) {
     return <p>Loading...</p>
