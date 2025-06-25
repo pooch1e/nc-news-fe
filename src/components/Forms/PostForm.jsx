@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Container } from 'react-bootstrap';
 import { postCommentOrArticleById } from '../../utils/postById';
 import { useRefresh } from '../../context/refreshContext';
 export const PostForm = ({ type, onClose, id }) => {
   const { triggerRefresh } = useRefresh();
   const [isError, setError] = useState(null);
+  const [validated, setValidated] = useState(false);
 
   //create a form
 
@@ -15,6 +16,12 @@ export const PostForm = ({ type, onClose, id }) => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const form = e.currentTarget;
+    if (form.checkValidity() === false) {
+      e.preventDefault();
+    } else {
+      setValidated(true);
+    }
     console.log(value, 'form data');
 
     if (!value.trim()) {
@@ -47,7 +54,7 @@ export const PostForm = ({ type, onClose, id }) => {
 
   return (
     <>
-      <Form onSubmit={handleSubmit}>
+      <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="comment">
           <Form.Label>Enter Text</Form.Label>
           <Form.Control
@@ -55,6 +62,10 @@ export const PostForm = ({ type, onClose, id }) => {
             rows={3}
             value={value}
             onChange={handleChange}
+            placeholder={`Write your ${
+              type === 'comment' ? 'comment' : 'article'
+            } here...`}
+            required
           />
         </Form.Group>
         <Button variant="primary" type="submit">
