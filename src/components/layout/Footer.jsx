@@ -8,7 +8,7 @@ export const Footer = () => {
   const [toggleHome, setToggleHome] = useState(false);
   const location = useLocation();
 
-  const { postType, setPostType } = useContext(idTypeContext);
+  const { setPostType } = useContext(idTypeContext);
 
   const isArticle = location.pathname.startsWith('/articles');
 
@@ -16,7 +16,7 @@ export const Footer = () => {
 
   useEffect(() => {
     setPostType(currentPostType);
-  }, [isArticle, setPostType]);
+  }, [currentPostType, setPostType]);
   return (
     <>
       <div className="footer-container">

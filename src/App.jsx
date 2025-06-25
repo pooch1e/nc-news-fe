@@ -12,7 +12,7 @@ function App() {
   const [postType, setPostType] = useState('article');
   return (
     <>
-      <idTypeContext.Provider value={{postType, setPostType}}>
+      <idTypeContext.Provider value={{ postType, setPostType }}>
         <header>
           <Header />
         </header>

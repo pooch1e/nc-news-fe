@@ -15,7 +15,7 @@ export const CreatePost = ({ type, onToggleForm }) => {
   return (
     <>
       <Button variant="primary" className="light" onClick={formToggle}>
-        {type === 'Create Post' ? 'Add Comment' : 'Create Post'}
+        {showForm ? 'Cancel' : type}
       </Button>
       {showForm && <PostForm onClose={formToggle} />}
     </>

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { postCommentOrArticleById } from '../../utils/postById';
-export const PostForm = () => {
+export const PostForm = ({ onClose }) => {
   //create a form
   const [value, setValue] = useState('');
 
@@ -15,13 +15,16 @@ export const PostForm = () => {
       alert('handle error here');
       return;
     }
-    
 
     console.log('form submitted');
-    
 
     setValue('');
+
+    if (onClose) {
+      onClose();
+    }
   };
+
   //on submit, pass data to post comment api function
 
   return (
