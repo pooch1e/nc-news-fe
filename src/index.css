@@ -93,10 +93,10 @@ main {
 .article-card {
   /* for debug */
   /* border: 1px solid blue; */
-  margin: 1rem;
+  /* margin: 1rem; */
 }
-
-@media (min-width: 1250px) {
+/* full screen */
+/* @media (min-width: 1250px) {
     .article-card {
     margin: 1rem;
     width: 50%;
@@ -105,32 +105,32 @@ main {
     justify-content: center;
     align-items: center;
   }
-}
+} */
 
-.article-content-container {
+/* .article-content-container {
   padding: 10px;
   border-radius: 5px;
   min-height: 3rem;
   margin: 1rem;
-}
+} */
 
-.article-title {
+/* .article-title {
   text-align: center;
   border: 1px solid black;
   border-radius: 25px;
   padding: 0.5rem;
-}
+} */
 
-.article-content {
+/* .article-content {
   display: flex;
   justify-content: space-between;
   font-style: italic;
-}
+} */
 /* Only works on desktop and is ugly - change this */
-.article-content-container:hover {
+/* .article-content-container:hover {
   border: var(--border-debug);
   box-shadow: 10px 0px 10px black;
-}
+} */
 /* .article-img {
   display: flex;
   justify-content: center;
@@ -165,14 +165,14 @@ main {
 
 
 
-.article-comments {
+/* .article-comments {
   display: flex;
   justify-content: start;
 }
 
 .article-comments > button {
   font-size: var(--button-size);
-}
+} */
 
 /* SINGLE ARTICLE PAGE */
 /* #single-article-title {
