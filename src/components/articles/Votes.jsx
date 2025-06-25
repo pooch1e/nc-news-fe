@@ -1,5 +1,6 @@
 import { Button } from 'react-bootstrap';
 import { useState } from 'react';
+import Container from 'react-bootstrap/Container';
 import { useVoteType } from '../../context/VoteTypeContext';
 import { updateVoteById } from '../../utils/updateVoteById';
 export const Votes = ({ id, votes }) => {
@@ -7,17 +8,6 @@ export const Votes = ({ id, votes }) => {
 
   const [currentVotes, setCurrentVotes] = useState(votes);
   const [isError, setError] = useState(null);
-  // handle votes here
-  // will have to make patch request...
-
-  // for debug
-  // const handlePatchRequest = () => {
-  //   if (voteType === 'comment') {
-  //     console.log('comment vote was clicked');
-  //   } else {
-  //     console.log('article vote was clicked');
-  //   }
-  // };
 
   const handleUpvote = async (up) => {
     //provide instant feedback
@@ -29,7 +19,7 @@ export const Votes = ({ id, votes }) => {
     } catch (err) {
       console.log(err);
       setCurrentVotes((prev) => prev - 1);
-      setError(err);
+      setError(true);
     }
   };
 
@@ -43,9 +33,17 @@ export const Votes = ({ id, votes }) => {
     } catch (err) {
       console.log(err);
       setCurrentVotes((prev) => prev + 1);
-      setError(err);
+      setError(true);
     }
   };
+
+  if (isError) {
+    return (
+      <Container className="d-flex justify-content-center align-items-center">
+        <p className="mt-3">We're Sorry, something has gone wrong...</p>
+      </Container>
+    );
+  }
 
   return (
     <>

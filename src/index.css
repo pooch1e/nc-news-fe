@@ -90,11 +90,11 @@ main {
   border: var(--border-debug);
 }
 
-.article-card {
+/* .article-card { */
   /* for debug */
   /* border: 1px solid blue; */
   /* margin: 1rem; */
-}
+/* } */
 /* full screen */
 /* @media (min-width: 1250px) {
     .article-card {
