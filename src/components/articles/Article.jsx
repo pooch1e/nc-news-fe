@@ -78,7 +78,7 @@ export const Article = () => {
                     </Col>
                     <Col md={6}>
                       <Badge className="text-center rounded-pill">
-                        <p>Topic: {article.topic}</p>
+                        <p>{article.topic}</p>
                       </Badge>
                     </Col>
                   </Row>
