@@ -11,6 +11,7 @@ export const Footer = () => {
   const { setPostType } = useContext(idTypeContext);
 
   const isArticle = location.pathname.startsWith('/articles');
+  const id = isArticle ? location.pathname.split('/').pop() : null;
 
   const currentPostType = isArticle ? 'comment' : 'article';
 
@@ -26,9 +27,10 @@ export const Footer = () => {
           </Link>
         )}
         <CreatePost
-          type={isArticle ? 'Create Post' : 'Add Comment'}
+          label={isArticle ? 'Add Comment' : 'Create Post'}
           onToggleForm={(isOpen) => setToggleHome(isOpen)}
           postType={currentPostType}
+          postId={id}
         />
       </div>
     </>

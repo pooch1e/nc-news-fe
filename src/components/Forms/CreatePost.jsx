@@ -1,7 +1,7 @@
 import { Button } from 'react-bootstrap';
 import { useState } from 'react';
 import { PostForm } from './PostForm';
-export const CreatePost = ({ type, onToggleForm }) => {
+export const CreatePost = ({ label, postType, onToggleForm, postId }) => {
   const [showForm, setShowForm] = useState(false);
 
   const formToggle = () => {
@@ -15,9 +15,9 @@ export const CreatePost = ({ type, onToggleForm }) => {
   return (
     <>
       <Button variant="primary" className="light" onClick={formToggle}>
-        {showForm ? 'Cancel' : type}
+        {showForm ? 'cancel' : label}
       </Button>
-      {showForm && <PostForm onClose={formToggle} />}
+      {showForm && <PostForm type={postType} onClose={formToggle} id={postId}/>}
     </>
   );
 };
