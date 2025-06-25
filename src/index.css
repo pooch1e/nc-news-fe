@@ -182,22 +182,21 @@ main {
 /* COMMENTS */
 
 /* Outer box */
-.comment-card {
+/* .comment-card {
   padding: 5px;
   min-height: 3rem;
   margin: 1rem;
 }
 
 /* individual comment */
-.comment-box {
-  /* DEFINITELY NEEDS CHANGING */
-  -moz-box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
+/* .comment-box { */
+  /* -moz-box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
   -webkit-box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
   box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
   padding: 0.5em;
 }
 
-.comment-author-date {
+/* .comment-author-date {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -205,7 +204,7 @@ main {
 
 .comment-author-date > h3 {
   font-size: 1em;
-}
+}  */
 
 /* Footer */
 

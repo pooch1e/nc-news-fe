@@ -1,7 +1,15 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getArticles } from '../../utils/getArticles';
-import { Card, Button, Container, Row, Col, Spinner, Badge } from 'react-bootstrap';
+import {
+  Card,
+  Button,
+  Container,
+  Row,
+  Col,
+  Spinner,
+  Badge,
+} from 'react-bootstrap';
 import { VoteTypeContext } from '../../context/VoteTypeContext';
 import { Votes } from './Votes';
 import { FetchComments } from '../comments/FetchComments';
@@ -63,46 +71,62 @@ export const Article = () => {
 
                   <Row className="mb-3">
                     <Col md={6}>
-                      {/* <div className="article-content"> */}
-                        <p className="mb-1">
-                          <strong className='text-muted'>Author:</strong>
-                          <span className="ms-2">{article.author}</span>
-                        </p>
-                        </Col>
-                        <Col md={6}>
+                      <p className="mb-1">
+                        <strong className="text-muted">Author:</strong>
+                        <span className="ms-2">{article.author}</span>
+                      </p>
+                    </Col>
+                    <Col md={6}>
+                      <Badge className="text-center rounded-pill">
                         <p>Topic: {article.topic}</p>
-                      {/* </div> */}
+                      </Badge>
                     </Col>
                   </Row>
-                  <div className="article-body">
-                    <p>{article.body}</p>
+
+                  <div className="article-body mb-4">
+                    <p className="lead lh-base">{article.body}</p>
                   </div>
 
-                  <div className="article-img">
+                  <div className="article-img mb-4">
                     <Card.Img
                       src={article.article_img_url}
                       alt={article.title}
+                      className="rounded shadow-sm"
                     />
                   </div>
-                  <VoteTypeContext.Provider value="article">
-                    <div className="article-votes">
-                      <Votes id={article.article_id} votes={article.votes} />
-                    </div>
-                  </VoteTypeContext.Provider>
-
-                  <div className="article-comments">
-                    <Button variant="dark">
-                      Comments: {article.comment_count}
-                    </Button>
-                  </div>
-                  <div className="article-createdAt">
-                    <p>Date Created: {formattedDate}</p>
-                  </div>
+                  <Row className="align-items-center">
+                    <Col md={6}>
+                      <VoteTypeContext.Provider value="article">
+                        <div className="article-votes">
+                          <Votes
+                            id={article.article_id}
+                            votes={article.votes}
+                          />
+                        </div>
+                      </VoteTypeContext.Provider>
+                    </Col>
+                  </Row>
+                  <Row className="align-items-center justify-content-center">
+                    <Col mb={6}>
+                      <div className="article-comments mb-2">
+                        <Button variant="dark">
+                          Comments: {article.comment_count}
+                        </Button>
+                      </div>
+                      <div className="article-createdAt">
+                        <p>Date Created: {formattedDate}</p>
+                      </div>
+                    </Col>
+                  </Row>
                 </Card.Body>
               </Card>
-              <div className="comments-article-container">
-                <FetchComments article_id={article_id} />
-              </div>
+              <Row align-items-center="true" mt-4="true">
+                <Col>
+                  <div className="comments-article-container">
+                    <FetchComments article_id={article_id} />
+                  </div>
+                </Col>
+              </Row>
             </section>
           </Col>
         </Row>
