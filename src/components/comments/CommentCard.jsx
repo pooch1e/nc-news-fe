@@ -12,7 +12,7 @@ export const CommentCard = ({ comment }) => {
       <Row className="justify-content-center">
         <Col lg={10} xl={8}>
           <section className="comment-box">
-            <Card shadow-sm border-0>
+            <Card shadow-sm='true' border-='true'>
               <Card.Header className="bg-light">
                 <h3>{comment.author}</h3>
               </Card.Header>
