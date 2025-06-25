@@ -1,6 +1,7 @@
 import { ArticleStyles } from './ArticleStyles';
 import { useState, useEffect } from 'react';
 import { getArticles } from '../../utils/getArticles';
+import { Container, Spinner } from 'react-bootstrap';
 export const FetchArticles = () => {
   const [articleList, setArticleList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -18,9 +19,17 @@ export const FetchArticles = () => {
       });
   }, []);
 
-  if (isLoading) {
-    return <p>Loading....</p>;
+  if (isLoading || !articleList) {
+    return (
+      <Container className="d-flex justify-content-center align-items-center">
+        <div className="text-center">
+          <Spinner animation="border" role="status" variant="primary" />
+          <p className="mt-3">Loading...</p>
+        </div>
+      </Container>
+    );
   }
+
   let articlesWithDate = articleList.map((article) => {
     let d = new Date(article.created_at);
     return {
