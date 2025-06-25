@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { postCommentOrArticleById } from '../../utils/postById';
+import { useRefresh } from '../../context/refreshContext';
 export const PostForm = ({ type, onClose, id }) => {
+  const { triggerRefresh } = useRefresh();
   const [isError, setError] = useState(null);
 
   //create a form
@@ -20,21 +22,20 @@ export const PostForm = ({ type, onClose, id }) => {
       return;
     }
 
-    console.log('form submitted');
-
     try {
       await postCommentOrArticleById(id, value, type);
+      setValue('');
+      console.log('form submitted');
+      triggerRefresh();
+
+      if (onClose) {
+        onClose();
+      }
     } catch (err) {
       console.log(err);
       setError(true);
     }
   };
-
-  setValue('');
-
-  if (onClose) {
-    onClose();
-  }
 
   if (isError) {
     return (
