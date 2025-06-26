@@ -8,6 +8,7 @@ export const getTopics = async () => {
       throw new Error('Could not fetch topics');
     }
     const json = await result.json();
+
     return json;
   } catch (err) {
     console.log(err);
