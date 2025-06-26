@@ -2,12 +2,13 @@ import { ArticleStyles } from './ArticleStyles';
 import { useState, useEffect } from 'react';
 import { getArticles } from '../../utils/getArticles';
 import { Container, Spinner } from 'react-bootstrap';
-export const FetchArticles = () => {
+export const FetchArticles = ({topic}) => {
   const [articleList, setArticleList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+
   useEffect(() => {
-    getArticles()
+    getArticles(null, topic)
       .then((result) => {
         const { articles } = result;
         console.log(result.articles);
@@ -17,7 +18,7 @@ export const FetchArticles = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [topic]);
 
   if (isLoading || !articleList) {
     return (

@@ -7,6 +7,7 @@ import { Layout } from './components/layout/Layout';
 import { Header } from './components/layout/Header';
 import { Article } from '../src/components/articles/Article';
 import { Footer } from './components/layout/Footer';
+import { TopicPage } from './components/topics/TopicPage';
 import { UserProvider } from './context/userContext';
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Layout />} />
               <Route path="/articles/:article_id" element={<Article />} />
-              
+              <Route path="/topics/:topic_slug" element={<TopicPage />} />
             </Routes>
             <footer>
               <Footer />

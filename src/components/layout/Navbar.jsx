@@ -1,6 +1,7 @@
 import { FetchTopics } from '../topics/FetchTopics';
 import { Hamburger } from './Hamburger';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [hasBeenOpened, setHasBeenOpened] = useState(false);
@@ -30,7 +31,13 @@ export const Navbar = () => {
             {topics &&
               topics.length !== 0 &&
               topics.map((topic, index) => {
-                return <li key={index}>{topic.slug.toUpperCase()}</li>;
+                return (
+                  <li key={index}>
+                    <Link to={`topics/${topic.slug}`}>
+                      {topic.slug.toUpperCase()}
+                    </Link>
+                  </li>
+                );
               })}
           </ul>
         </nav>
