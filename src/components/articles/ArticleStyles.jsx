@@ -10,13 +10,15 @@ export const ArticleStyles = ({
   return (
     <div className="article-card">
       <Container>
-        <Button onClick={() => handleQuery('created_at')}>Date</Button>
-        <Button onClick={() => handleQuery('comment_count')}>
+        <Button onClick={() => handleQuery({ sort_by: 'created_at' })}>
+          Date
+        </Button>
+        <Button onClick={() => handleQuery({ sort_by: 'comment_count' })}>
           Comment Count
         </Button>
-        <Button onClick={() => handleQuery('votes')}>Votes</Button>
+        <Button onClick={() => handleQuery({ sort_by: 'votes' })}>Votes</Button>
         <Button onClick={toggleOrder}>
-          Order ({currentOrder === 'asc' ? '⬆️' : '⬇️'})
+          {currentOrder === 'asc' ? 'Ascending' : 'Descending'}
         </Button>
       </Container>
       {articles.map((article) => {

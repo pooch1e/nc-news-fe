@@ -1,12 +1,20 @@
-export const getArticles = async (id = null, topic = null, queries = null, order = null) => {
+export const getArticles = async (id = null, topic = null, queries = {}) => {
   let url = 'https://nc-news-api-qa14.onrender.com/api/articles';
 
+  //handle ID
   if (id && id !== null) {
-    url = `https://nc-news-api-qa14.onrender.com/api/articles/${id}`;
-  } else if (topic && topic !== null) {
-    url = `https://nc-news-api-qa14.onrender.com/api/articles?topic=${topic}`;
-  } else if (queries && queries !== null) {
-    url = `https://nc-news-api-qa14.onrender.com/api/articles?sort_by=${queries}`
+    url += `/${id}`;
+  } else {
+    const newUrl = new URLSearchParams();
+
+    if (topic) newUrl.append('topic', topic);
+    if (queries.sort_by) newUrl.append('sort_by', queries.sort_by);
+    if (queries.order) newUrl.append('order', queries.order);
+
+    const queryStringFinal = newUrl.toString();
+    if (queryStringFinal && queryStringFinal !== null) {
+      url += `?${queryStringFinal}`;
+    }
   }
   try {
     const response = await fetch(url);
