@@ -1,23 +1,20 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { idTypeContext } from './context/idTypeContext';
+import { IdTypeProvider } from './context/idTypeContext';
 import { RefreshProvider } from './context/refreshProvider';
 import { Routes, Route } from 'react-router-dom';
 import { Layout } from './components/layout/Layout';
 import { Header } from './components/layout/Header';
 import { Article } from '../src/components/articles/Article';
 import { Footer } from './components/layout/Footer';
-import { useState } from 'react';
 import { UserProvider } from './context/userContext';
 
 function App() {
-  const [postType, setPostType] = useState('article');
-
   return (
     <>
       <RefreshProvider>
         <UserProvider>
-          <idTypeContext.Provider value={{ postType, setPostType }}>
+          <IdTypeProvider>
             <header>
               <Header />
             </header>
@@ -28,7 +25,7 @@ function App() {
             <footer>
               <Footer />
             </footer>
-          </idTypeContext.Provider>
+          </IdTypeProvider>
         </UserProvider>
       </RefreshProvider>
     </>
