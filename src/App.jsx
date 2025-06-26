@@ -7,16 +7,16 @@ import { Layout } from './components/layout/Layout';
 import { Header } from './components/layout/Header';
 import { Article } from '../src/components/articles/Article';
 import { Footer } from './components/layout/Footer';
-import { createContext, useState } from 'react';
+import { useState } from 'react';
+import { UserProvider } from './context/userContext';
 
 function App() {
-  const UserContext = createContext(null);
   const [postType, setPostType] = useState('article');
-  const [currentUser, setCurrentUser] = useState({ username: 'tickle122' });
+
   return (
     <>
       <RefreshProvider>
-        <UserContext.Provider value={{currentUser, setCurrentUser}}>
+        <UserProvider>
           <idTypeContext.Provider value={{ postType, setPostType }}>
             <header>
               <Header />
@@ -29,7 +29,7 @@ function App() {
               <Footer />
             </footer>
           </idTypeContext.Provider>
-        </UserContext.Provider>
+        </UserProvider>
       </RefreshProvider>
     </>
   );

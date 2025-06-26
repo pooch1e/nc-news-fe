@@ -1,18 +1,20 @@
 import { Votes } from '../articles/Votes';
 import { VoteTypeContext } from '../../context/VoteTypeContext';
-import {
-  Card,
-  Container,
-  Row,
-  Col,
-} from 'react-bootstrap';
+import { Card, Container, Row, Col } from 'react-bootstrap';
+import { DeleteButton } from './DeleteButton';
+import { useContext } from 'react';
+import { UserContext } from '../../context/userContext';
 export const CommentCard = ({ comment }) => {
+  const { loggedInUser } = useContext(UserContext); //tickle122
+
+  const username = loggedInUser.name === 'tickle122' ? 'tickle122' : null;
+
   return (
     <Container className="mt-4">
       <Row className="justify-content-center">
         <Col lg={10} xl={8}>
           <section className="comment-box">
-            <Card shadow-sm='true' border-='true'>
+            <Card shadow-sm="true" border-="true">
               <Card.Header className="bg-light">
                 <h3>{comment.author}</h3>
               </Card.Header>
@@ -30,6 +32,13 @@ export const CommentCard = ({ comment }) => {
                 </div>
               </VoteTypeContext.Provider>
             </Card>
+            <Col mb-2="true">
+              <Row md={4}>
+                {username === comment.author && (
+                  <DeleteButton comment_id={comment.comment_id} />
+                )}
+              </Row>
+            </Col>
           </section>
         </Col>
       </Row>
