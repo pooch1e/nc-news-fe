@@ -21,6 +21,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Layout />} />
               <Route path="/articles/:article_id" element={<Article />} />
+              
             </Routes>
             <footer>
               <Footer />
