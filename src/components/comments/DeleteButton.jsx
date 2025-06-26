@@ -1,7 +1,7 @@
 import { Button } from 'react-bootstrap';
 import { deleteComment } from '../../utils/deleteComment';
 import { useState } from 'react';
-export const DeleteButton = ({ comment_id }) => {
+export const DeleteButton = ({ comment_id, onDelete }) => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -10,9 +10,14 @@ export const DeleteButton = ({ comment_id }) => {
     setIsLoading(true);
     try {
       await deleteComment(comment_id);
+      if (onDelete) {
+        onDelete(comment_id);
+      }
       setIsLoading(false);
     } catch (err) {
       setError(err);
+      setIsLoading(false);
+    } finally {
       setIsLoading(false);
     }
   };
@@ -25,8 +30,8 @@ export const DeleteButton = ({ comment_id }) => {
     return <p>Loading...</p>;
   }
   return (
-    <Button variant="secondary" onClick={handleDeletion}>
-      Delete
+    <Button variant="secondary" onClick={handleDeletion} disabled={isLoading}>
+      {isLoading ? 'Deleting...' : 'Delete'}
     </Button>
   );
 };

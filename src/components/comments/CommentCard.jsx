@@ -4,10 +4,11 @@ import { Card, Container, Row, Col } from 'react-bootstrap';
 import { DeleteButton } from './DeleteButton';
 import { useContext } from 'react';
 import { UserContext } from '../../context/userContext';
-export const CommentCard = ({ comment }) => {
+export const CommentCard = ({ comment, onDelete }) => {
   const { loggedInUser } = useContext(UserContext); //tickle122
 
   const username = loggedInUser.name === 'tickle122' ? 'tickle122' : null;
+
 
   return (
     <Container className="mt-4">
@@ -35,7 +36,10 @@ export const CommentCard = ({ comment }) => {
             <Col mb-2="true">
               <Row md={4}>
                 {username === comment.author && (
-                  <DeleteButton comment_id={comment.comment_id} />
+                  <DeleteButton
+                    comment_id={comment.comment_id}
+                    onDelete={onDelete}
+                  />
                 )}
               </Row>
             </Col>

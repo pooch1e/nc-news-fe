@@ -29,10 +29,17 @@ export const FetchComments = ({ article_id }) => {
     return <p>Error with loading comments</p>;
   }
 
+  // TODO remove comment on deletion from ui
+  const removeFromCommentsList = (comment_id) => {
+    setComments((prev) => {
+      return prev.filter((comment) => comment.comment_id !== comment_id);
+    });
+  };
+
   return (
     <section className="comments" id="comments-section">
       <div id="comment-list">
-        <CommentStyles comments={comments} />
+        <CommentStyles comments={comments} onDelete={removeFromCommentsList} />
       </div>
     </section>
   );
