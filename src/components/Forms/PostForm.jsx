@@ -1,8 +1,12 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
 import { postCommentOrArticleById } from '../../utils/postById';
 import { useRefresh } from '../../context/refreshContext';
+import { UserContext } from '../../context/userContext';
 export const PostForm = ({ type, onClose, id }) => {
+  const { loggedInUser } = useContext(UserContext); //tickle122
+
+  const username = loggedInUser.name === 'tickle122' ? 'tickle122' : null;
   const { triggerRefresh } = useRefresh();
   const [isError, setError] = useState(null);
   const [validated, setValidated] = useState(false);
@@ -30,7 +34,7 @@ export const PostForm = ({ type, onClose, id }) => {
     }
 
     try {
-      await postCommentOrArticleById(id, value, type);
+      await postCommentOrArticleById(id, value, type, username);
       setValue('');
       console.log('form submitted');
       triggerRefresh();
