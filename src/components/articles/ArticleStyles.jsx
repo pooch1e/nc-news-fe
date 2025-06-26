@@ -6,17 +6,26 @@ export const ArticleStyles = ({
   handleQuery,
   toggleOrder,
   currentOrder,
+  activeSortBy,
 }) => {
   return (
     <div className="article-card">
       <Container>
-        <Button onClick={() => handleQuery({ sort_by: 'created_at' })}>
+        <Button
+          variant={activeSortBy === 'created_at' ? 'dark' : 'light'}
+          onClick={() => handleQuery({ sort_by: 'created_at' })}>
           Date
         </Button>
-        <Button onClick={() => handleQuery({ sort_by: 'comment_count' })}>
+        <Button
+          variant={activeSortBy === 'comment_count' ? 'dark' : 'light'}
+          onClick={() => handleQuery({ sort_by: 'comment_count' })}>
           Comment Count
         </Button>
-        <Button onClick={() => handleQuery({ sort_by: 'votes' })}>Votes</Button>
+        <Button
+          variant={activeSortBy === 'votes' ? 'dark' : 'light'}
+          onClick={() => handleQuery({ sort_by: 'votes' })}>
+          Votes
+        </Button>
         <Button onClick={toggleOrder}>
           {currentOrder === 'asc' ? 'Ascending' : 'Descending'}
         </Button>

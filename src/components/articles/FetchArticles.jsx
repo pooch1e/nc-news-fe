@@ -9,9 +9,12 @@ export const FetchArticles = ({ topic }) => {
     sort_by: 'created_at',
     order: 'desc',
   });
+  const [activeButton, setActiveButton] = useState('desc');
+
+
 
   useEffect(() => {
-    console.log('this is what Im searchign with', topic, queries);
+    console.log('this is what Im searching with', topic, queries);
     getArticles(null, topic, queries)
       .then((result) => {
         const { articles } = result;
@@ -64,6 +67,7 @@ export const FetchArticles = ({ topic }) => {
           handleQuery={handleQuery}
           toggleOrder={toggleOrder}
           currentOrder={queries.order}
+          activeSortBy={queries.sort_by}
         />
       </div>
     </section>
