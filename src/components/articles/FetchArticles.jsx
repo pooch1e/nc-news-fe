@@ -9,9 +9,6 @@ export const FetchArticles = ({ topic }) => {
     sort_by: 'created_at',
     order: 'desc',
   });
-  const [activeButton, setActiveButton] = useState('desc');
-
-
 
   useEffect(() => {
     console.log('this is what Im searching with', topic, queries);

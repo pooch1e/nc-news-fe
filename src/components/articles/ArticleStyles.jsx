@@ -1,6 +1,6 @@
 import { ArticleCard } from './ArticleCard';
 import { VoteTypeContext } from '../../context/VoteTypeContext';
-import { Button, Container } from 'react-bootstrap';
+import { Button, Container, Col } from 'react-bootstrap';
 export const ArticleStyles = ({
   articles,
   handleQuery,
@@ -11,24 +11,29 @@ export const ArticleStyles = ({
   return (
     <div className="article-card">
       <Container>
-        <Button
-          variant={activeSortBy === 'created_at' ? 'dark' : 'light'}
-          onClick={() => handleQuery({ sort_by: 'created_at' })}>
-          Date
-        </Button>
-        <Button
-          variant={activeSortBy === 'comment_count' ? 'dark' : 'light'}
-          onClick={() => handleQuery({ sort_by: 'comment_count' })}>
-          Comment Count
-        </Button>
-        <Button
-          variant={activeSortBy === 'votes' ? 'dark' : 'light'}
-          onClick={() => handleQuery({ sort_by: 'votes' })}>
-          Votes
-        </Button>
-        <Button onClick={toggleOrder}>
-          {currentOrder === 'asc' ? 'Ascending' : 'Descending'}
-        </Button>
+        <div className="d-flex gap-2">
+          <Button
+            className="flex-fill"
+            variant={activeSortBy === 'created_at' ? 'dark' : 'light'}
+            onClick={() => handleQuery({ sort_by: 'created_at' })}>
+            Date
+          </Button>
+          <Button
+            className="flex-fill"
+            variant={activeSortBy === 'comment_count' ? 'dark' : 'light'}
+            onClick={() => handleQuery({ sort_by: 'comment_count' })}>
+            Comment Count
+          </Button>
+          <Button
+            className="flex-fill"
+            variant={activeSortBy === 'votes' ? 'dark' : 'light'}
+            onClick={() => handleQuery({ sort_by: 'votes' })}>
+            Votes
+          </Button>
+          <Button className="flex-fill" onClick={toggleOrder}>
+            {currentOrder === 'asc' ? 'Ascending' : 'Descending'}
+          </Button>
+        </div>
       </Container>
       {articles.map((article) => {
         return (

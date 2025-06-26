@@ -1,4 +1,4 @@
-import { Button } from 'react-bootstrap';
+import { Button, Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { CreatePost } from '../Forms/CreatePost';
@@ -6,6 +6,7 @@ import { idTypeContext } from '../../context/idTypeContext';
 import { useState, useContext, useEffect } from 'react';
 export const Footer = () => {
   const [toggleHome, setToggleHome] = useState(false);
+  const [showForm, setShowForm] = useState(false);
   const location = useLocation();
 
   const { setPostType } = useContext(idTypeContext);
@@ -20,18 +21,21 @@ export const Footer = () => {
   }, [currentPostType, setPostType]);
   return (
     <>
-      <div className="footer-container">
-        {!toggleHome && (
-          <Link to={'/'}>
-            <Button variant="secondary">Home</Button>
-          </Link>
-        )}
-        <CreatePost
-          label={isArticle ? 'Add Comment' : 'Create Post'}
-          onToggleForm={(isOpen) => setToggleHome(isOpen)}
-          postType={currentPostType}
-          postId={id}
-        />
+      <div className="fixed-bottom bg0 white  shadow-sm py-3 footer-container">
+        {/* <Container>
+          <Row className="g-2 align-items-center">
+            {!showForm && (
+              <Link to={'/'}>
+                <Button variant="secondary">Home</Button>
+              </Link>
+            )}
+            <Col> */}
+              <CreatePost
+                label={isArticle ? 'Add Comment' : 'Create Post'}
+                onToggleForm={(isOpen) => setToggleHome(isOpen)}
+                postType={currentPostType}
+                postId={id}
+              />
       </div>
     </>
   );

@@ -16,9 +16,7 @@ function App() {
       <RefreshProvider>
         <UserProvider>
           <IdTypeProvider>
-            <header>
-              <Header />
-            </header>
+            <Header />
             <Routes>
               <Route path="/" element={<Layout />} />
               <Route path="/articles/:article_id" element={<Article />} />

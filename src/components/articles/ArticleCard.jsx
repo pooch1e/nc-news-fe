@@ -5,7 +5,6 @@ export const ArticleCard = ({ article }) => {
   return (
     <Container className="mt-4 mb-4 p-8">
       <Card className="article-content-container">
-        
         <Card.Body>
           <div className="article-title card-title">
             <Card.Title as={'h2'} className="display-6 mb-3 fw-bold">
@@ -16,7 +15,7 @@ export const ArticleCard = ({ article }) => {
             <Col md={6}>
               <div className="article-content">
                 <p>Author: {article.author}</p>
-                <Badge className="text-center rounded-pill">
+                <Badge className="d-flex align-items-center justify-content-center text-center rounded-pill w-25">
                   <p>{article.topic}</p>
                 </Badge>
               </div>
