@@ -3,7 +3,7 @@ import { Votes } from './Votes';
 import { Link } from 'react-router-dom';
 export const ArticleCard = ({ article }) => {
   return (
-    <Container className="mt-4 mb-4">
+    <Container className="mt-4 mb-4 p-8">
       <Card className="article-content-container">
         <Card.Body>
           <div className="article-title card-title">
