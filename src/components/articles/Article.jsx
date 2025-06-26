@@ -20,6 +20,8 @@ export const Article = () => {
   const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+
+  // GET REQUEST
   useEffect(() => {
     getArticles(article_id)
       .then((result) => {

@@ -2,13 +2,14 @@ import { ArticleStyles } from './ArticleStyles';
 import { useState, useEffect } from 'react';
 import { getArticles } from '../../utils/getArticles';
 import { Container, Spinner } from 'react-bootstrap';
-export const FetchArticles = ({topic}) => {
+export const FetchArticles = ({ topic }) => {
   const [articleList, setArticleList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
+  const [queries, setQueries] = useState(null);
+  const [order, setOrder] = useState('desc');
 
   useEffect(() => {
-    getArticles(null, topic)
+    getArticles(null, topic, queries, order)
       .then((result) => {
         const { articles } = result;
         console.log(result.articles);
@@ -18,7 +19,18 @@ export const FetchArticles = ({topic}) => {
       .catch((err) => {
         console.log(err);
       });
-  }, [topic]);
+  }, [topic, queries, order]);
+
+  const handleQuery = (queryType) => {
+    setQueries(queryType);
+  };
+
+  const toggleOrder = () => {
+    const newOrder = order === 'desc' ? 'asc' : 'desc';
+    setOrder(newOrder);
+    handleQuery(newOrder);
+  };
+  console.log(queries);
 
   if (isLoading || !articleList) {
     return (
@@ -41,7 +53,12 @@ export const FetchArticles = ({topic}) => {
   return (
     <section className="articles" id="articles-section">
       <div id="article-list">
-        <ArticleStyles articles={articlesWithDate} />
+        <ArticleStyles
+          articles={articlesWithDate}
+          handleQuery={handleQuery}
+          toggleOrder={toggleOrder}
+          currentOrder={order}
+        />
       </div>
     </section>
   );
