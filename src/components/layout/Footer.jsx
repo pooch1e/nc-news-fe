@@ -19,7 +19,7 @@ export const Footer = () => {
   }, [currentPostType, setPostType]);
   return (
     <>
-      <div className="fixed-bottom bg0 white  shadow-sm py-3">
+      <div className="fixed-bottom bg0 white  shadow-sm py-3 footer-container">
         <CreatePost
           label={isArticle ? 'Add Comment' : 'Create Post'}
           onToggleForm={(isOpen) => setToggleHome(isOpen)}

@@ -29,7 +29,7 @@ export const PostForm = ({ type, onClose, id }) => {
     console.log(value, 'form data');
 
     if (!value.trim()) {
-      alert('handle error here');
+      setError('Please enter some text');
       return;
     }
 

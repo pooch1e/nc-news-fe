@@ -24,8 +24,8 @@ export const Navbar = () => {
 
   const handleTopicsList = (fetchedTopics) => {
     setTopics(fetchedTopics);
-    // console.log(fetchedTopics, 'fetched from fetch topics in nav');
   };
+
   return (
     <>
       <div className="navbar-wrapper mb-4">
