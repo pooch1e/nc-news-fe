@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { getArticles } from '../../utils/getArticles';
 
-
-export const useArticleApi = ({ topic }) => {
+export const useArticleApi = ({ id, topic }) => {
   const [articleList, setArticleList] = useState([]);
+  const [singleArticle, setSingleArticle] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setError] = useState(false);
   const [queries, setQueries] = useState({
@@ -13,19 +13,21 @@ export const useArticleApi = ({ topic }) => {
 
   useEffect(() => {
     console.log('this is what Im searching with', topic, queries);
-    getArticles(null, topic, queries)
+    getArticles(id, topic, queries)
       .then((result) => {
-        const { articles } = result;
-        console.log(result.articles);
+        if (id) {
+          setSingleArticle(result.article);
+        } else {
+          setArticleList(result.articles);
+        }
         setIsLoading(false);
         setError(null);
-        setArticleList(articles);
       })
       .catch((err) => {
         console.log(err);
         setError({ status: 404, msg: 'Error fetching articles' });
       });
-  }, [topic, queries]);
+  }, [id, topic, queries]);
 
   const handleQuery = (newQueries) => {
     setQueries((prev) => {
@@ -40,5 +42,13 @@ export const useArticleApi = ({ topic }) => {
     }));
   };
 
-  return { articleList, isLoading, isError, queries, handleQuery, toggleOrder };
+  return {
+    articleList,
+    singleArticle,
+    isLoading,
+    isError,
+    queries,
+    handleQuery,
+    toggleOrder,
+  };
 };

@@ -1,6 +1,4 @@
 import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { getArticles } from '../../utils/getArticles';
 import {
   Card,
   Button,
@@ -13,45 +11,25 @@ import {
 import { VoteTypeContext } from '../../context/VoteTypeContext';
 import { Votes } from './Votes';
 import { FetchComments } from '../comments/FetchComments';
+import { useArticleApi } from '../Hooks/useArticleApi';
 
 export const Article = () => {
   const { article_id } = useParams();
-  const [article, setArticle] = useState([]);
-  const [isLoading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
-  // GET REQUEST
-  useEffect(() => {
-    getArticles(article_id)
-      .then((result) => {
-        const { article } = result;
-        console.log(result, 'single article with article id');
-        setArticle(article);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err, 'error in loading article');
-        setLoading(false);
-        setError(true);
-      });
-  }, [article_id]);
+  const { singleArticle, isLoading, isError } = useArticleApi({
+    id: article_id,
+  });
 
-  let formattedDate = new Date(article.created_at).toLocaleDateString();
+  if (isLoading) return <p>Loading...</p>;
+  if (isError) return <p>Error loading article</p>;
+  if (!singleArticle) return <p>No article found</p>;
 
-  if (isLoading || !article) {
-    return (
-      <Container className="d-flex justify-content-center align-items-center">
-        <div className="text-center">
-          <Spinner animation="border" role="status" variant="primary" />
-          <p className="mt-3">Loading...</p>
-        </div>
-      </Container>
-    );
-  }
+  console.log(singleArticle, 'article inside of SINGLE ARTICLE');
+  console.log(article_id, 'match this with article list');
+  let formattedDate = new Date(singleArticle.created_at).toLocaleDateString();
 
-  if (error) {
-    return <p>Error loading article</p>;
-  }
+  console.log(singleArticle, 'filtered');
+
   return (
     <>
       <Container className="mt-4 mb-5">
@@ -66,7 +44,7 @@ export const Article = () => {
                     <Card.Title
                       as={'h2'}
                       className="display-6 lead text-center bg-light mb-3 fw-bold">
-                      {article.title}
+                      {singleArticle.title}
                     </Card.Title>
                   </div>
 
@@ -74,24 +52,24 @@ export const Article = () => {
                     <Col md={6}>
                       <p className="mb-1">
                         <strong className="text-muted">Author:</strong>
-                        <span className="ms-2">{article.author}</span>
+                        <span className="ms-2">{singleArticle.author}</span>
                       </p>
                     </Col>
                     <Col md={6}>
                       <Badge className="text-center rounded-pill">
-                        <p>{article.topic}</p>
+                        <p>{singleArticle.topic}</p>
                       </Badge>
                     </Col>
                   </Row>
 
                   <div className="article-body mb-4">
-                    <p className="lead lh-base">{article.body}</p>
+                    <p className="lead lh-base">{singleArticle.body}</p>
                   </div>
 
                   <div className="article-img mb-4">
                     <Card.Img
-                      src={article.article_img_url}
-                      alt={article.title}
+                      src={singleArticle.article_img_url}
+                      alt={singleArticle.title}
                       className="rounded shadow-sm"
                     />
                   </div>
@@ -100,8 +78,8 @@ export const Article = () => {
                       <VoteTypeContext.Provider value="article">
                         <div className="article-votes">
                           <Votes
-                            id={article.article_id}
-                            votes={article.votes}
+                            id={singleArticle.article_id}
+                            votes={singleArticle.votes}
                           />
                         </div>
                       </VoteTypeContext.Provider>
@@ -111,7 +89,7 @@ export const Article = () => {
                     <Col mb={6}>
                       <div className="article-comments mb-2">
                         <Button variant="dark">
-                          Comments: {article.comment_count}
+                          Comments: {singleArticle.comment_count}
                         </Button>
                       </div>
                       <div className="article-createdAt">
