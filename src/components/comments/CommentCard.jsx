@@ -14,7 +14,6 @@ export const CommentCard = ({ comment, onDelete }) => {
     <div className="comment-card mb-4">
       <Card className="shadow-sm border-0">
         <Card.Body className="p-4">
-          {/* Author and date row */}
           <Row className="align-items-center mb-3">
             <Col>
               <div className="d-flex align-items-center gap-2 mb-1">
@@ -29,11 +28,6 @@ export const CommentCard = ({ comment, onDelete }) => {
                   <h6 className="mb-0 fw-bold">{comment.author}</h6>
                   <small className="text-muted">{comment.formattedDate}</small>
                 </div>
-                {username && (
-                  <Badge bg="primary" className="ms-2">
-                    Your comment
-                  </Badge>
-                )}
               </div>
             </Col>
           </Row>
