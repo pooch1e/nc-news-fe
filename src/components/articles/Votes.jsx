@@ -12,6 +12,7 @@ export const Votes = ({ id, votes }) => {
   const handleUpvote = async (up) => {
     //provide instant feedback
     setCurrentVotes((prev) => prev + up);
+    setIsLoading(true);
     setError(null);
     try {
       //patch request
@@ -20,6 +21,8 @@ export const Votes = ({ id, votes }) => {
       console.log(err);
       setCurrentVotes((prev) => prev - 1);
       setError(true);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -27,6 +30,7 @@ export const Votes = ({ id, votes }) => {
     //provide instant feedback
     setCurrentVotes((prev) => prev + down);
     setError(null);
+    setIsLoading(true);
     try {
       //patch request
       updateVoteById(id, down, voteType);
@@ -34,6 +38,8 @@ export const Votes = ({ id, votes }) => {
       console.log(err);
       setCurrentVotes((prev) => prev + 1);
       setError(true);
+    } finally {
+      setIsLoading(false);
     }
   };
 
