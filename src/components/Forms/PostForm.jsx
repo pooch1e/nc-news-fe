@@ -59,7 +59,7 @@ export const PostForm = ({ type, onClose, id }) => {
   return (
     <>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="comment">
+        <Form.Group className="mb-1" controlId="comment">
           <Form.Label>Enter Text</Form.Label>
           <Form.Control
             as="textarea"

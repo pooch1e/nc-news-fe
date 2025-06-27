@@ -20,7 +20,6 @@ export const Article = () => {
   const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-
   // GET REQUEST
   useEffect(() => {
     getArticles(article_id)
@@ -66,7 +65,7 @@ export const Article = () => {
                     id="single-article-title">
                     <Card.Title
                       as={'h2'}
-                      className="display-6 text-primary mb-3 fw-bold">
+                      className="display-6 lead text-center bg-light mb-3 fw-bold">
                       {article.title}
                     </Card.Title>
                   </div>

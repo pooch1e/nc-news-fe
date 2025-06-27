@@ -212,15 +212,15 @@ main {
 /* Footer */
 
 .footer-container {
-  position: fixed;
+  /* position: fixed;
   bottom: 0;
-  left: 0;
+  left: 0; */
   width: 100%;
   background-color: #fff;
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
   display: flex;
   justify-content: space-around;
-  border-top: 1px solid #ccc;
+  /* border-top: 1px solid #ccc; */
   z-index: 1000;
 }
 
@@ -228,12 +228,6 @@ main {
   font-size: 0.8rem;
 }
 
-
 .footer-container .btn:disabled {
   opacity: 0.5;
-}
-
-/* Remove text decoration from Link */
-.footer-container a {
-  text-decoration: none;
 }

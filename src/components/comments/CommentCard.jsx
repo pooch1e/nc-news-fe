@@ -9,7 +9,6 @@ export const CommentCard = ({ comment, onDelete }) => {
 
   const username = loggedInUser.name === 'tickle122' ? 'tickle122' : null;
 
-
   return (
     <Container className="mt-4">
       <Row className="justify-content-center">
@@ -32,17 +31,17 @@ export const CommentCard = ({ comment, onDelete }) => {
                   <Votes id={comment.comment_id} votes={comment.votes} />
                 </div>
               </VoteTypeContext.Provider>
+              <Col>
+                <Row className="d-flex justify-content-center">
+                  {username === comment.author && (
+                    <DeleteButton
+                      comment_id={comment.comment_id}
+                      onDelete={onDelete}
+                    />
+                  )}
+                </Row>
+              </Col>
             </Card>
-            <Col mb-2="true">
-              <Row md={4}>
-                {username === comment.author && (
-                  <DeleteButton
-                    comment_id={comment.comment_id}
-                    onDelete={onDelete}
-                  />
-                )}
-              </Row>
-            </Col>
           </section>
         </Col>
       </Row>
