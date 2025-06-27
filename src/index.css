@@ -14,12 +14,7 @@
   --bs-body-font-family: 'Reddit Sans', sans-serif;
 }
 
-.reddit-sans-kg {
-  font-family: 'Reddit Sans', sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
-}
+
 main {
   padding-bottom: 2rem;
 }
