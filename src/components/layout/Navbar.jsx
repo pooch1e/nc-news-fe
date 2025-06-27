@@ -65,7 +65,9 @@ export const Navbar = () => {
             </nav>
           </div>
         </Collapse>
-        <FetchTopics loaded={hasBeenOpened} onTopicsLoad={handleTopicsList} />
+        {hasBeenOpened && (
+          <FetchTopics loaded={hasBeenOpened} onTopicsLoad={handleTopicsList} />
+        )}
       </div>
     </>
   );

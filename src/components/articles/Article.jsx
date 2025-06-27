@@ -20,15 +20,43 @@ export const Article = () => {
     id: article_id,
   });
 
-  if (isLoading) return <p>Loading...</p>;
-  if (isError) return <p>Error loading article</p>;
-  if (!singleArticle) return <p>No article found</p>;
+  if (isLoading) {
+    return (
+      <>
+        <Container className="d-flex justify-content-center align-items-center min-vh-100">
+          <div className="text-center">
+            <Spinner animation="border" role="status" variant="primary" />
+            <p className="mt-3"> Loading...</p>
+          </div>
+        </Container>
+      </>
+    );
+  }
+  if (isError) {
+    return (
+      <>
+        <Container className="mt-4">
+          <div className="alert alert-danger text-center">
+            <p className="mb-0">Something went wrong</p>
+          </div>
+        </Container>
+      </>
+    );
+  }
 
-  console.log(singleArticle, 'article inside of SINGLE ARTICLE');
-  console.log(article_id, 'match this with article list');
+  if (!singleArticle) {
+    return (
+      <>
+        <Container className="mt-4">
+          <div className="alert alert-danger text-center">
+            <p className="mb-0">Something went wrong</p>
+          </div>
+        </Container>
+      </>
+    );
+  }
+
   let formattedDate = new Date(singleArticle.created_at).toLocaleDateString();
-
-  console.log(singleArticle, 'filtered');
 
   return (
     <>
@@ -43,7 +71,7 @@ export const Article = () => {
                     id="single-article-title">
                     <Card.Title
                       as={'h2'}
-                      className="display-6 lead text-center bg-light mb-3 fw-bold">
+                      className="display-6 text-center bg-light mb-3 fw-bold">
                       {singleArticle.title}
                     </Card.Title>
                   </div>
@@ -55,7 +83,7 @@ export const Article = () => {
                         <span className="ms-2">{singleArticle.author}</span>
                       </p>
                     </Col>
-                    <Col md={6}>
+                    <Col md={6} className="text-md-end">
                       <Badge className="text-center rounded-pill">
                         <p>{singleArticle.topic}</p>
                       </Badge>
@@ -70,10 +98,10 @@ export const Article = () => {
                     <Card.Img
                       src={singleArticle.article_img_url}
                       alt={singleArticle.title}
-                      className="rounded shadow-sm"
+                      className="rounded shadow-sm fluid"
                     />
                   </div>
-                  <Row className="align-items-center">
+                  <Row className="align-items-center mb-3">
                     <Col md={6}>
                       <VoteTypeContext.Provider value="article">
                         <div className="article-votes">
@@ -86,13 +114,13 @@ export const Article = () => {
                     </Col>
                   </Row>
                   <Row className="align-items-center justify-content-center">
-                    <Col mb={6}>
-                      <div className="article-comments mb-2">
+                    <Col mb={6} className="text-md-end">
+                      <div className="article-comments">
                         <Button variant="dark">
                           Comments: {singleArticle.comment_count}
                         </Button>
                       </div>
-                      <div className="article-createdAt">
+                      <div className="article-createdAt text-muted">
                         <p>Date Created: {formattedDate}</p>
                       </div>
                     </Col>
