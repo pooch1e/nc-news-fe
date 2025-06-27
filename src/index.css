@@ -148,25 +148,25 @@ main {
 
 /* VOTES */
 
-.votes-container {
+/* .votes-container {
   display: flex;
   justify-content: space-around;
   margin: 0.5rem;
   align-items: center;
-}
+} */
 
-.votes-container > button {
+/* .votes-container > button {
   border-radius: 50px;
   font-size: 0.5rem;
-}
+} */
 
-.votes-container > .vote-count {
+/* .votes-container > .vote-count {
   text-align: center;
   min-width: 2ch;
   font-size: 1rem;
   font-weight: bold;
   margin-top: 15px;
-}
+} */
 
 /* .article-comments {
   display: flex;

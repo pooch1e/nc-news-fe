@@ -1,6 +1,5 @@
-import { Button } from 'react-bootstrap';
+import { Button, Container, Row, Col } from 'react-bootstrap';
 import { useState } from 'react';
-import Container from 'react-bootstrap/Container';
 import { useVoteType } from '../../context/VoteTypeContext';
 import { updateVoteById } from '../../utils/updateVoteById';
 export const Votes = ({ id, votes }) => {
@@ -39,7 +38,7 @@ export const Votes = ({ id, votes }) => {
 
   if (isError) {
     return (
-      <Container className="d-flex justify-content-center align-items-center">
+      <Container className="d-flex justify-content-center align-items-center gap-2">
         <p className="mt-3">We're Sorry, something has gone wrong...</p>
       </Container>
     );
@@ -47,12 +46,22 @@ export const Votes = ({ id, votes }) => {
 
   return (
     <>
-      <div className="votes-container">
-        <Button onClick={() => handleUpvote(1)}>Upvote</Button>
-        <span className="vote-count">
+      <div className="votes-container d-flex justify-items-center align-items-center gap-2">
+        <Button
+          variant="outline-success"
+          size="sm"
+          onClick={() => handleUpvote(1)}>
+          Upvote
+        </Button>
+        <span className="text-muted small">
           <p>Votes: {currentVotes}</p>
         </span>
-        <Button onClick={() => handleDownVote(-1)}>Downvote</Button>
+        <Button
+          variant="outline-danger"
+          size="sm"
+          onClick={() => handleDownVote(-1)}>
+          Downvote
+        </Button>
       </div>
     </>
   );
