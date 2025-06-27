@@ -7,6 +7,7 @@ import { UserContext } from '../../context/userContext';
 export const CommentCard = ({ comment, onDelete }) => {
   const { loggedInUser } = useContext(UserContext); //tickle122
 
+  // only show delete button for logged in user
   const username = loggedInUser.name === comment.author;
 
   return (
@@ -37,7 +38,6 @@ export const CommentCard = ({ comment, onDelete }) => {
             </Col>
           </Row>
 
-          {/* Comment content */}
           <Row>
             <Col>
               <div className="comment-body mb-3 ps-5">
