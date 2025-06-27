@@ -4,7 +4,7 @@ export const PageNotFound = () => {
     <Container>
       <Row>
         <Col>
-          <h4>Page not found</h4>
+          <h4>404: Page not found</h4>
         </Col>
       </Row>
     </Container>
