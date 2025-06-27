@@ -1,29 +1,16 @@
 import { ArticleStyles } from './ArticleStyles';
-import { Container, Spinner } from 'react-bootstrap';
-import { useApiRequest } from '../Hooks/useApiRequest';
+import { useArticleApi } from '../Hooks/useArticleApi';
+import { Loading } from '../layout/Loading';
 export const FetchArticles = ({ topic }) => {
   const { articleList, isError, isLoading, queries, handleQuery, toggleOrder } =
-    useApiRequest({ topic });
+    useArticleApi({ topic });
 
   if (isLoading || !articleList) {
-    return (
-      <Container className="d-flex justify-content-center align-items-center">
-        <div className="text-center">
-          <Spinner animation="border" role="status" variant="primary" />
-          <p className="mt-3">Loading...</p>
-        </div>
-      </Container>
-    );
+    return <Loading />;
   }
+
   if (isError) {
-    return (
-      <Container className="d-flex justify-content-center align-items-center">
-        <div className="text-center">
-          <Spinner animation="border" role="status" variant="primary" />
-          <p className="mt-3">We're Sorry, there is an error ...</p>
-        </div>
-      </Container>
-    );
+    return <Error />;
   }
 
   let articlesWithDate = articleList.map((article) => {

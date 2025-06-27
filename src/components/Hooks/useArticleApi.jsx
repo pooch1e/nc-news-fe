@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { getArticles } from '../../utils/getArticles';
-export const useApiRequest = ({ topic }) => {
+
+
+export const useArticleApi = ({ topic }) => {
   const [articleList, setArticleList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setError] = useState(false);

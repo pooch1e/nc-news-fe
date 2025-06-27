@@ -1,40 +1,18 @@
-import { useEffect, useState } from 'react';
-import { getCommentsbyArticleId } from '../../utils/getCommentsById';
 import { CommentStyles } from './CommentStyles';
-import { useRefresh } from '../../context/refreshContext';
+import { useCommentApi } from '../Hooks/useCommentApi';
+import { Loading } from '../layout/Loading';
+import { Error } from '../layout/Error';
 export const FetchComments = ({ article_id }) => {
-  const { refreshCommentsKey } = useRefresh();
-  const [comments, setComments] = useState([]);
-  const [isLoading, setLoading] = useState(true);
-  const [isError, setError] = useState(null);
-
-  useEffect(() => {
-    getCommentsbyArticleId(article_id)
-      .then((result) => {
-        const { comments } = result;
-        setComments(comments);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err, 'err with fetching comments');
-        setLoading(false);
-        setError(err);
-      });
-  }, [article_id, refreshCommentsKey]);
+  const { comments, isLoading, isError, removeFromCommentsList } =
+    useCommentApi({ article_id });
 
   if (isLoading) {
-    return <p>Loading...</p>;
-  }
-  if (isError) {
-    return <p>Error with loading comments</p>;
+    return <Loading />;
   }
 
-  // TODO remove comment on deletion from ui
-  const removeFromCommentsList = (comment_id) => {
-    setComments((prev) => {
-      return prev.filter((comment) => comment.comment_id !== comment_id);
-    });
-  };
+  if (isError) {
+    return <Error />;
+  }
 
   return (
     <section className="comments" id="comments-section">
