@@ -1,56 +1,70 @@
 import { Votes } from '../articles/Votes';
 import { VoteTypeContext } from '../../context/VoteTypeContext';
-import { Card, Container, Row, Col } from 'react-bootstrap';
+import { Card, Container, Row, Col, Badge } from 'react-bootstrap';
 import { DeleteButton } from './DeleteButton';
 import { useContext } from 'react';
 import { UserContext } from '../../context/userContext';
 export const CommentCard = ({ comment, onDelete }) => {
   const { loggedInUser } = useContext(UserContext); //tickle122
 
-  const username = loggedInUser.name === 'tickle122' ? 'tickle122' : null;
+  const username = loggedInUser.name === comment.author;
 
   return (
-    <Container className="mt-4">
-      <Row className="justify-content-center">
-        <Col lg={10} xl={8}>
-          <section className="comment-box">
-            <Card shadow-sm="true" border-0="true">
-              <Card.Header className="d-flex justify-content-between align-items-center">
-                <h3>{comment.author}</h3>
-              </Card.Header>
-              <small>
-                <p className="mt-1 text-muted">
-                  {new Date(comment.created_at).toLocaleDateString()}
-                </p>
-              </small>
-              <Card.Body className="align-text-center mb-3">
-                <div className="comment-body">
-                  <p>{comment.body}</p>
+    <div className="comment-card mb-4">
+      <Card className="shadow-sm border-0">
+        <Card.Body className="p-4">
+          {/* Author and date row */}
+          <Row className="align-items-center mb-3">
+            <Col>
+              <div className="d-flex align-items-center gap-2 mb-1">
+                <div
+                  className="bg-primary rounded-circle d-flex align-items-center justify-content-center"
+                  style={{ width: '32px', height: '32px' }}>
+                  <small className="text-white fw-bold">
+                    {comment.author.charAt(0).toUpperCase()}
+                  </small>
                 </div>
-                <Row className="align-items-center">
-                  <Col xs="auto">
-                    <VoteTypeContext.Provider value="comment">
-                      <div className="comment-votes">
-                        <Votes id={comment.comment_id} votes={comment.votes} />
-                      </div>
-                    </VoteTypeContext.Provider>
-                  </Col>
-                </Row>
-              </Card.Body>
-              <Col>
-                <Row className="d-flex justify-content-center">
-                  {username === comment.author && (
-                    <DeleteButton
-                      comment_id={comment.comment_id}
-                      onDelete={onDelete}
-                    />
-                  )}
-                </Row>
+                <div>
+                  <h6 className="mb-0 fw-bold">{comment.author}</h6>
+                  <small className="text-muted">{comment.formattedDate}</small>
+                </div>
+                {username && (
+                  <Badge bg="primary" className="ms-2">
+                    Your comment
+                  </Badge>
+                )}
+              </div>
+            </Col>
+          </Row>
+
+          {/* Comment content */}
+          <Row>
+            <Col>
+              <div className="comment-body mb-3 ps-5">
+                <p className="mb-0 lh-base">{comment.body}</p>
+              </div>
+            </Col>
+          </Row>
+
+          {/* Actions row */}
+          <Row className="align-items-center justify-content-between ps-5">
+            <Col xs="auto">
+              <VoteTypeContext.Provider value="comment">
+                <Votes id={comment.comment_id} votes={comment.votes} />
+              </VoteTypeContext.Provider>
+            </Col>
+
+            {username && (
+              <Col xs="auto">
+                <DeleteButton
+                  comment_id={comment.comment_id}
+                  onDelete={onDelete}
+                />
               </Col>
-            </Card>
-          </section>
-        </Col>
-      </Row>
-    </Container>
+            )}
+          </Row>
+        </Card.Body>
+      </Card>
+    </div>
   );
 };
