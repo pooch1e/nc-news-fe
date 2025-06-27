@@ -241,5 +241,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 For support or questions, please [open an issue](https://github.com/[username]/nc-news-frontend/issues) on GitHub.
 
 ---
-
+This portfolio project was created as part of a Digital Skills Bootcamp in Software Engineering provided by [Northcoders](https://northcoders.com/)
 **Note**: This project is currently in active development. Features and documentation may change frequently.
