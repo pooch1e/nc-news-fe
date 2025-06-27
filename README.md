@@ -137,6 +137,18 @@ npm run dev
 - `npm run preview` - Preview production build
 - `npm run test` - Run test suites
 
+When redploying an app, first create an updated build version of the code:
+
+```npm run build```
+
+Deploy to a draft URL:
+
+```netlify deploy```
+
+Deploy to the production URL:
+
+```netlify deploy --prod```
+
 ## 🌐 API Integration
 
 The application connects to a backend API with the following endpoints:
