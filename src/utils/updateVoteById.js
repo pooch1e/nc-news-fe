@@ -1,6 +1,5 @@
 // could take votes or comments ID
 export const updateVoteById = async (id, vote, type) => {
-  console.log('update called');
   //need check for votes or comment
   let baseUrl = `https://nc-news-api-qa14.onrender.com/api`;
   const url =
@@ -21,8 +20,7 @@ export const updateVoteById = async (id, vote, type) => {
     }
 
     const data = await updateVotes.json();
-    console.log(updateVotes.status);
-    console.log(data);
+
     return data;
   } catch (err) {
     console.log(err);

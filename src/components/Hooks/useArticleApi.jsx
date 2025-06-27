@@ -12,7 +12,6 @@ export const useArticleApi = ({ id, topic }) => {
   });
 
   useEffect(() => {
-    console.log('this is what Im searching with', topic, queries);
     getArticles(id, topic, queries)
       .then((result) => {
         if (id) {

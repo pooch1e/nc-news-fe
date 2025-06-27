@@ -30,5 +30,6 @@ export const getArticles = async (id = null, topic = null, queries = {}) => {
     }
   } catch (err) {
     console.log('err from getArticles util', err.message);
+    throw err;
   }
 };

@@ -26,7 +26,7 @@ export const PostForm = ({ type, onClose, id }) => {
     } else {
       setValidated(true);
     }
-    console.log(value, 'form data');
+    
 
     if (!value.trim()) {
       setError('Please enter some text');

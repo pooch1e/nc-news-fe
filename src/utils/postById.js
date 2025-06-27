@@ -4,7 +4,6 @@ export const postCommentOrArticleById = async (
   type,
   username = null
 ) => {
-  console.log(type, 'in post by id ');
   let baseUrl = `https://nc-news-api-qa14.onrender.com/api`;
   const url =
     type === 'comment'
@@ -24,8 +23,8 @@ export const postCommentOrArticleById = async (
     }
 
     const data = await postForm.json();
-    console.log(postForm.status);
-    console.log(data);
+
+    return data;
   } catch (err) {
     console.log(err);
     throw err;

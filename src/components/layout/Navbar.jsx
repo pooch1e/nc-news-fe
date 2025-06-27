@@ -11,7 +11,7 @@ export const Navbar = () => {
 
   const toggleHamburger = () => {
     setIsOpen((prev) => !prev);
-    console.log('hamburger clicked');
+    
     //should happen once
     if (!hasBeenOpened) {
       setHasBeenOpened(true);
