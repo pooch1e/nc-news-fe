@@ -26,7 +26,6 @@ export const PostForm = ({ type, onClose, id }) => {
     } else {
       setValidated(true);
     }
-    
 
     if (!value.trim()) {
       setError('Please enter some text');
@@ -72,7 +71,7 @@ export const PostForm = ({ type, onClose, id }) => {
             required
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" disabled={validated}>
           Submit
         </Button>
       </Form>

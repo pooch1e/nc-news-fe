@@ -2,6 +2,7 @@ import { Button, Container, Row, Col, ButtonGroup } from 'react-bootstrap';
 import { useState } from 'react';
 import { useVoteType } from '../../context/VoteTypeContext';
 import { updateVoteById } from '../../utils/updateVoteById';
+import { Error } from '../layout/Error';
 export const Votes = ({ id, votes }) => {
   const voteType = useVoteType(); // comment or article depending on where clicked
 
@@ -46,7 +47,7 @@ export const Votes = ({ id, votes }) => {
   if (isError) {
     return (
       <Container className="d-flex justify-content-center align-items-center gap-2">
-        <p className="mt-3">We're Sorry, something has gone wrong...</p>
+        <Error />
       </Container>
     );
   }
