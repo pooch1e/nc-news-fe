@@ -1,6 +1,10 @@
 # NC News Frontend
 
 A modern React-based news aggregation application built with React Router, Bootstrap, and custom hooks for state management.
+Deployed: https://nc-news-jkram.netlify.app/
+Please note - to connect to the API, the render app may need to be loaded here: https://nc-news-api-qa14.onrender.com/
+
+Github: https://github.com/pooch1e/nc-news-fe
 
 ## 🚀 Features
 
