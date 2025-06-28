@@ -94,15 +94,18 @@ nc-news-frontend/
 ## 🎯 Key Components
 
 ### Custom Hooks
+
 - **`useApiRequest`**: Manages article fetching with sorting and filtering
 - **`useCommentsRequest`**: Handles comment data and deletion
 - **`useTopicsRequest`**: Fetches and validates topic data
 
 ### Context Providers
+
 - **`idTypeContext`**: Manages post types (article/comment)
 - **`refreshContext`**: Handles component refresh triggers
 
 ### Smart Components
+
 - **`FetchArticles`**: Article listing with sorting capabilities
 - **`FetchComments`**: Comment display with voting
 - **`CreatePost`**: Dynamic form for articles and comments
@@ -111,23 +114,27 @@ nc-news-frontend/
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js (v16 or higher)
 - npm or yarn
 
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone [repository-url]
 cd nc-news-frontend
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Start the development server:
+
 ```bash
 npm run dev
 ```
@@ -143,15 +150,15 @@ npm run dev
 
 When redploying an app, first create an updated build version of the code:
 
-```npm run build```
+`npm run build`
 
 Deploy to a draft URL:
 
-```netlify deploy```
+`netlify deploy`
 
 Deploy to the production URL:
 
-```netlify deploy --prod```
+`netlify deploy --prod`
 
 ## 🌐 API Integration
 
@@ -168,11 +175,13 @@ The application connects to a backend API with the following endpoints:
 ## 🎨 Styling
 
 The application uses a combination of:
+
 - **Bootstrap 5** for responsive layout and components
 - **Custom CSS** with CSS variables for theming
 - **Reddit Sans** font family for modern typography
 
 ### CSS Custom Properties
+
 ```css
 :root {
   --border-debug: 1px solid red;
@@ -185,6 +194,7 @@ The application uses a combination of:
 ## 📋 Current TODO List
 
 ### Articles
+
 - [ ] Fix topic pill styling
 - [ ] Reduce comment button size and prominence
 - [ ] Add navigation from comment button to article view
@@ -195,6 +205,7 @@ The application uses a combination of:
 - [ ] Implement article posting functionality
 
 ### Comments
+
 - [ ] Improve styling and layout
 - [ ] Enable comment editing
 - [ ] Auto-increment comment count on new posts
@@ -206,6 +217,7 @@ The application uses a combination of:
 - [ ] Write comprehensive tests for utilities
 
 ### General
+
 - [ ] Add error boundaries
 - [ ] Implement loading skeletons
 - [ ] Add user authentication
@@ -216,6 +228,7 @@ The application uses a combination of:
 ## 🧪 Testing
 
 Currently, testing is in development. Planned testing includes:
+
 - Unit tests for custom hooks
 - Integration tests for API calls
 - Component testing with React Testing Library
@@ -245,5 +258,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 For support or questions, please [open an issue](https://github.com/[username]/nc-news-frontend/issues) on GitHub.
 
 ---
+
 This portfolio project was created as part of a Digital Skills Bootcamp in Software Engineering provided by [Northcoders](https://northcoders.com/)
 **Note**: This project is currently in active development. Features and documentation may change frequently.
