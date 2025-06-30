@@ -21,8 +21,7 @@ Github: https://github.com/pooch1e/nc-news-fe
 - **Frontend**: React 18, React Router DOM
 - **Styling**: Bootstrap 5, Custom CSS
 - **State Management**: React Context API, Custom Hooks
-- **HTTP Client**: Axios (assumed)
-- **Build Tool**: Vite (assumed)
+- **Build Tool**: Vite
 
 ## 📁 Project Structure
 
