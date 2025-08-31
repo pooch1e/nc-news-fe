@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getArticles } from '../../utils/getArticles';
+import { getArticles } from '../utils/getArticles';
 
 export const useArticleApi = ({ id, topic }) => {
   const [articleList, setArticleList] = useState([]);
@@ -23,7 +23,6 @@ export const useArticleApi = ({ id, topic }) => {
         setError(null);
       })
       .catch((err) => {
-        
         setError({ status: 404, msg: 'Error fetching articles', err });
       });
   }, [id, topic, queries]);

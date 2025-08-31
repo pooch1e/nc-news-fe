@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { getCommentsbyArticleId } from '../../utils/getCommentsById';
-import { useRefresh } from '../../context/refreshContext';
+import { getCommentsbyArticleId } from '../utils/getCommentsById';
+import { useRefresh } from '../context/refreshContext';
 export const useCommentApi = ({ article_id }) => {
   const { refreshCommentsKey } = useRefresh();
   const [comments, setComments] = useState([]);

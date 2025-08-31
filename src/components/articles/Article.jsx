@@ -11,7 +11,7 @@ import {
 import { VoteTypeContext } from '../../context/VoteTypeContext';
 import { Votes } from './Votes';
 import { FetchComments } from '../comments/FetchComments';
-import { useArticleApi } from '../Hooks/useArticleApi';
+import { useArticleApi } from '../../Hooks/useArticleApi';
 
 export const Article = () => {
   const { article_id } = useParams();
