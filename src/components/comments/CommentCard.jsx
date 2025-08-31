@@ -1,6 +1,6 @@
 import { Votes } from '../articles/Votes';
 import { VoteTypeContext } from '../../context/VoteTypeContext';
-import { Card, Container, Row, Col, Badge } from 'react-bootstrap';
+import { Card, Row, Col } from 'react-bootstrap';
 import { DeleteButton } from './DeleteButton';
 import { useContext } from 'react';
 import { UserContext } from '../../context/userContext';
