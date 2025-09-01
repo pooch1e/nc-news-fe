@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { NavigationBar } from '../ui/NavigationBar';
-import newsIcon from '../assets/icons8-news-200.svg';
+import newsIcon from '../../assets/icons8-news-200.svg';
 
 export const Header = () => {
   return (
