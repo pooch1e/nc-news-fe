@@ -1,4 +1,4 @@
-import { Container, Alert } from 'react-bootstrap';
+
 
 export const Error = ({ message, status }) => {
   const getErrorMessage = () => {

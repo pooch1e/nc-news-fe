@@ -1,5 +1,4 @@
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { IdTypeProvider } from './context/idTypeContext';
 import { RefreshProvider } from './context/refreshProvider';
 import { Routes, Route } from 'react-router-dom';

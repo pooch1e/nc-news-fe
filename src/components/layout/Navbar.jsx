@@ -2,7 +2,7 @@ import { FetchTopics } from '../topics/FetchTopics';
 import { Hamburger } from './Hamburger';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Card, ListGroup, Collapse, ListGroupItem } from 'react-bootstrap';
+
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [hasBeenOpened, setHasBeenOpened] = useState(false);
@@ -11,8 +11,7 @@ export const Navbar = () => {
 
   const toggleHamburger = () => {
     setIsOpen((prev) => !prev);
-    
-    //should happen once
+
     if (!hasBeenOpened) {
       setHasBeenOpened(true);
     }
@@ -28,22 +27,22 @@ export const Navbar = () => {
 
   return (
     <>
-      <div className="navbar-wrapper mb-4">
-        <div className="hamburger mb-2">
+      <div className="">
+        <div className="">
           <Hamburger onClick={toggleHamburger} />
         </div>
-        <Collapse in={isOpen}>
+        <div in={isOpen}>
           <div className="mb-4">
             <nav className="navigation">
-              <Card className="shadow-sm">
-                <Card.Body className="p-2">
-                  <ListGroup as={'ul'} variant="flush">
+              <div className="shadow-sm">
+                <div className="p-2">
+                  <ul>
                     {topics &&
                       topics.length !== 0 &&
                       topics.map((topic, index) => {
                         const isActive = currentPage === topic.slug;
                         return (
-                          <ListGroupItem
+                          <li
                             as={'li'}
                             key={index}
                             action
@@ -56,15 +55,15 @@ export const Navbar = () => {
                             <Link to={`topics/${topic.slug}`}>
                               {topic.slug.toUpperCase()}
                             </Link>
-                          </ListGroupItem>
+                          </li>
                         );
                       })}
-                  </ListGroup>
-                </Card.Body>
-              </Card>
+                  </ul>
+                </div>
+              </div>
             </nav>
           </div>
-        </Collapse>
+        </div>
         {hasBeenOpened && (
           <FetchTopics loaded={hasBeenOpened} onTopicsLoad={handleTopicsList} />
         )}

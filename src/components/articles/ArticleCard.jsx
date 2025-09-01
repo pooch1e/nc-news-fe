@@ -1,4 +1,4 @@
-import { Button, Card, Row, Col, Container, Badge } from 'react-bootstrap';
+
 import { Votes } from './Votes';
 import { Link } from 'react-router-dom';
 export const ArticleCard = ({ article }) => {

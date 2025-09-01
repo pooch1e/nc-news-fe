@@ -21,8 +21,8 @@ export const FetchArticles = ({ topic }) => {
     };
   });
   return (
-    <section className="articles" id="articles-section">
-      <div id="article-list">
+    <section>
+      <div >
         <ArticleStyles
           articles={articlesWithDate}
           handleQuery={handleQuery}

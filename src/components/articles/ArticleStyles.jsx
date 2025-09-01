@@ -1,6 +1,6 @@
 import { ArticleCard } from './ArticleCard';
 import { VoteTypeContext } from '../../context/VoteTypeContext';
-import { Button, Container } from 'react-bootstrap';
+
 export const ArticleStyles = ({
   articles,
   handleQuery,

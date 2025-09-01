@@ -1,13 +1,5 @@
 import { useParams } from 'react-router-dom';
-import {
-  Card,
-  Button,
-  Container,
-  Row,
-  Col,
-  Spinner,
-  Badge,
-} from 'react-bootstrap';
+
 import { VoteTypeContext } from '../../context/VoteTypeContext';
 import { Votes } from './Votes';
 import { FetchComments } from '../comments/FetchComments';

@@ -1,4 +1,4 @@
-import { Button, Container, Row, Col, ButtonGroup } from 'react-bootstrap';
+
 import { useState } from 'react';
 import { useVoteType } from '../../context/VoteTypeContext';
 import { updateVoteById } from '../../utils/updateVoteById';
