@@ -21,11 +21,8 @@ function App() {
               <Route path="/" element={<Layout />} />
               <Route path="/articles/:article_id" element={<Article />} />
               <Route path="/topics/:topic_slug" element={<TopicPage />} />
-              <Route path='*' element={<PageNotFound />} />
+              <Route path="*" element={<PageNotFound />} />
             </Routes>
-            <footer>
-              <Footer />
-            </footer>
           </IdTypeProvider>
         </UserProvider>
       </RefreshProvider>

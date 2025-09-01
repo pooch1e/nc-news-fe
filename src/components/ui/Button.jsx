@@ -9,7 +9,7 @@ export const Button = ({
     'font-medium rounded-lg transition-colors focus:outline-none focus:ring-2';
 
   const variants = {
-    primary: 'bg-news-accent text-white hover:bg-blue-700 focus:ring-blue-500',
+    primary: 'bg-blue-400 text-white hover:bg-blue-700 focus:ring-blue-500',
     secondary:
       'bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500',
     outline:
