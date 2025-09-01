@@ -11,7 +11,7 @@ import {
 import { VoteTypeContext } from '../../context/VoteTypeContext';
 import { Votes } from './Votes';
 import { FetchComments } from '../comments/FetchComments';
-import { useArticleApi } from '../Hooks/useArticleApi';
+import { useArticleApi } from '../../Hooks/useArticleApi';
 
 export const Article = () => {
   const { article_id } = useParams();
@@ -35,11 +35,7 @@ export const Article = () => {
   if (isError) {
     return (
       <>
-        <Container className="mt-4">
-          <div className="alert alert-danger text-center">
-            <p className="mb-0">Something went wrong</p>
-          </div>
-        </Container>
+        <Error message={'Error fetching article'} status={404} />
       </>
     );
   }

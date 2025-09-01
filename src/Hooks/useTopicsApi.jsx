@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getTopics } from '../../utils/getTopics';
+import { getTopics } from '../utils/getTopics';
 export const useTopicsApi = ({ loaded, onTopicsLoad }) => {
   const [topics, setTopics] = useState([]);
   const [isLoading, setIsLoading] = useState(true);

@@ -1,5 +1,5 @@
 import { ArticleStyles } from './ArticleStyles';
-import { useArticleApi } from '../Hooks/useArticleApi';
+import { useArticleApi } from '../../Hooks/useArticleApi';
 import { Loading } from '../layout/Loading';
 export const FetchArticles = ({ topic }) => {
   const { articleList, isError, isLoading, queries, handleQuery, toggleOrder } =
