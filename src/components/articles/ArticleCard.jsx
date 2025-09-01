@@ -3,41 +3,40 @@ import { Link } from 'react-router-dom';
 
 export const ArticleCard = ({ article }) => {
   return (
-    <section className="mt-4 mb-4 p-8">
-      <div className="">
-        <div>
-          <div className="">
-            <div className="">{article.title}</div>
-          </div>
+    <article className="border border-gray-200 rounded ">
+      {/* Image */}
+      <div className="w-full">
+        <Link to={`/articles/${article.article_id}`}>
+          <img
+            src={article.article_img_url}
+            alt={article.title}
+            className="w-full h-48 object-cover"
+          />
+        </Link>
+      </div>
 
-          <div className="">
-            <p>Author: {article.author}</p>
+      {/* Content */}
+      <div className="p-4">
+        <p className="text-xs font-medium uppercase tracking-wide text-gray-600 mb-2">
+          {article.topic}
+        </p>
 
-            <p>{article.topic}</p>
-          </div>
+        <Link to={`/articles/${article.article_id}`}>
+          <h2 className="text-lg font-bold text-gray-900 leading-tight mb-2">
+            {article.title}
+          </h2>
+        </Link>
 
-          <div className="">
-            <Link to={`/articles/${article.article_id}`}>
-              <img
-                src={article.article_img_url}
-                alt={article.title}
-                className=""
-              />
-            </Link>
-          </div>
+        <p className="text-sm text-gray-600 mb-3">By {article.author}</p>
 
-          <div className="">
+        <div className="flex items-center justify-between text-sm text-gray-500">
+          <div className="flex items-center gap-3">
             <Votes id={article.article_id} votes={article.votes} />
+            <span>{article.comment_count} comments</span>
           </div>
-
-          <div className="">
-            <div>Comments: {article.comment_count}</div>
-          </div>
-          <div className="">
-            <p>Date Created: {article.formatted_date}</p>
-          </div>
+          <span>{article.formatted_date}</span>
         </div>
       </div>
-    </section>
+    </article>
   );
 };
