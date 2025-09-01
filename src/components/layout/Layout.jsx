@@ -1,4 +1,4 @@
-import { FetchArticles } from '../articles/FetchArticles';
+import { FetchArticles } from '../features/articles/FetchArticles';
 
 export const Layout = () => {
   return (

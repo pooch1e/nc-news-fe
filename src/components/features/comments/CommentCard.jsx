@@ -3,7 +3,7 @@ import { VoteTypeContext } from '../../../context/VoteTypeContext';
 
 import { DeleteButton } from './DeleteButton';
 import { useContext } from 'react';
-import { UserContext } from '../../context/userContext';
+import { UserContext } from '../../../context/userContext';
 export const CommentCard = ({ comment, onDelete }) => {
   const { loggedInUser } = useContext(UserContext); //tickle122
 

@@ -22,7 +22,7 @@ export const FetchArticles = ({ topic }) => {
   });
   return (
     <section>
-      <div >
+      <div>
         <ArticleStyles
           articles={articlesWithDate}
           handleQuery={handleQuery}
