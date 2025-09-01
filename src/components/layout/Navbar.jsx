@@ -43,9 +43,7 @@ export const Navbar = () => {
                         const isActive = currentPage === topic.slug;
                         return (
                           <li
-                            
                             key={index}
-                            action
                             className={`border-0 py-2 px-3 fs-5 link-offset-2 link-underline link-underline-opacity-25 ${
                               isActive
                                 ? 'bg-light text-primary border-start border-primary border-3'
