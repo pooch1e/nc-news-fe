@@ -1,6 +1,6 @@
-
 import { useState } from 'react';
 import { PostForm } from './PostForm';
+import { Button } from '../ui/Button';
 export const CreatePost = ({ label, postType, onToggleForm, postId }) => {
   const [showForm, setShowForm] = useState(false);
 
@@ -14,21 +14,21 @@ export const CreatePost = ({ label, postType, onToggleForm, postId }) => {
 
   return (
     <>
-      <Container fluid className="main-content mb-5 pb-4">
+      <div fluid className="main-content mb-5 pb-4">
         <div className="main-content">
           {showForm && (
-            <div className="form-container">
+            <div className="form-div">
               <PostForm type={postType} onClose={formToggle} id={postId} />
             </div>
           )}
 
-          <div className="footer-container">
-            <Button className="footer-button" onClick={formToggle}>
+          <div className="footer-div">
+            <Button  variant='primary' onClick={formToggle}>
               {showForm ? 'Cancel' : label}
             </Button>
           </div>
         </div>
-      </Container>
+      </div>
     </>
   );
 };

@@ -1,6 +1,6 @@
-
 import { deleteComment } from '../../utils/deleteComment';
 import { useState } from 'react';
+import { Button } from '../ui/Button';
 export const DeleteButton = ({ comment_id, onDelete }) => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
