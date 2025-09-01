@@ -1,14 +1,13 @@
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { IdTypeProvider } from './context/idTypeContext';
 import { RefreshProvider } from './context/refreshProvider';
 import { Routes, Route } from 'react-router-dom';
 import { Layout } from './components/layout/Layout';
 import { Header } from './components/layout/Header';
 import { PageNotFound } from './components/layout/PageNotFound';
-import { Article } from '../src/components/articles/Article';
-import { Footer } from './components/layout/Footer';
-import { TopicPage } from './components/topics/TopicPage';
+import { Article } from '../src/components/features/articles/Article';
+
+import { TopicPage } from './components/features/topics/TopicPage';
 import { UserProvider } from './context/userContext';
 
 function App() {
@@ -22,11 +21,8 @@ function App() {
               <Route path="/" element={<Layout />} />
               <Route path="/articles/:article_id" element={<Article />} />
               <Route path="/topics/:topic_slug" element={<TopicPage />} />
-              <Route path='*' element={<PageNotFound />} />
+              <Route path="*" element={<PageNotFound />} />
             </Routes>
-            <footer>
-              <Footer />
-            </footer>
           </IdTypeProvider>
         </UserProvider>
       </RefreshProvider>

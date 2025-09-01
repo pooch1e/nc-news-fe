@@ -1,9 +1,9 @@
 import { Votes } from '../articles/Votes';
-import { VoteTypeContext } from '../../context/VoteTypeContext';
-import { Card, Row, Col } from 'react-bootstrap';
+import { VoteTypeContext } from '../../../context/VoteTypeContext';
+
 import { DeleteButton } from './DeleteButton';
 import { useContext } from 'react';
-import { UserContext } from '../../context/userContext';
+import { UserContext } from '../../../context/userContext';
 export const CommentCard = ({ comment, onDelete }) => {
   const { loggedInUser } = useContext(UserContext); //tickle122
 
@@ -12,10 +12,10 @@ export const CommentCard = ({ comment, onDelete }) => {
 
   return (
     <div className="comment-card mb-4">
-      <Card className="shadow-sm border-0">
-        <Card.Body className="p-4">
-          <Row className="align-items-center mb-3">
-            <Col>
+      <div className="shadow-sm border-0">
+        <div className="p-4">
+          <div className="align-items-center mb-3">
+            <div>
               <div className="d-flex align-items-center gap-2 mb-1">
                 <div
                   className="bg-primary rounded-circle d-flex align-items-center justify-content-center"
@@ -29,36 +29,36 @@ export const CommentCard = ({ comment, onDelete }) => {
                   <small className="text-muted">{comment.formattedDate}</small>
                 </div>
               </div>
-            </Col>
-          </Row>
+            </div>
+          </div>
 
-          <Row>
-            <Col>
+          <div>
+            <div>
               <div className="comment-body mb-3 ps-5">
                 <p className="mb-0 lh-base">{comment.body}</p>
               </div>
-            </Col>
-          </Row>
+            </div>
+          </div>
 
-          {/* Actions row */}
-          <Row className="align-items-center justify-content-between ps-5">
-            <Col xs="auto">
+          {/* Actions div */}
+          <div className="align-items-center justify-content-between ps-5">
+            <div xs="auto">
               <VoteTypeContext.Provider value="comment">
                 <Votes id={comment.comment_id} votes={comment.votes} />
               </VoteTypeContext.Provider>
-            </Col>
+            </div>
 
             {username && (
-              <Col xs="auto">
+              <div xs="auto">
                 <DeleteButton
                   comment_id={comment.comment_id}
                   onDelete={onDelete}
                 />
-              </Col>
+              </div>
             )}
-          </Row>
-        </Card.Body>
-      </Card>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

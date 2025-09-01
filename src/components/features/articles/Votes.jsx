@@ -1,8 +1,7 @@
-import { Button, Container, Row, Col, ButtonGroup } from 'react-bootstrap';
 import { useState } from 'react';
-import { useVoteType } from '../../context/VoteTypeContext';
-import { updateVoteById } from '../../utils/updateVoteById';
-import { Error } from '../layout/Error';
+import { useVoteType } from '../../../context/VoteTypeContext';
+import { updateVoteById } from '../../../utils/updateVoteById';
+import { Error } from '../../layout/Error';
 export const Votes = ({ id, votes }) => {
   const voteType = useVoteType(); // comment or article depending on where clicked
 
@@ -46,31 +45,31 @@ export const Votes = ({ id, votes }) => {
 
   if (isError) {
     return (
-      <Container className="d-flex justify-content-center align-items-center gap-2">
+      <div className="d-flex justify-content-center align-items-center gap-2">
         <Error />
-      </Container>
+      </div>
     );
   }
 
   return (
     <>
-      <div className="votes-container">
-        <ButtonGroup size="sm" className="me-3">
-          <Button
+      <div className="flex">
+        <div className="justify-center align-middle text-center">
+          <button
             variant="outline-success"
             disabled={isLoading}
             className="d-flex align-items-center"
             onClick={() => handleUpvote(1)}>
             <i className="bi bi-arrow-up me-1" aria-hidden="true"></i>
             <span className="d-none d-sm-inline">Upvote</span>
-            <span className="d-sm-none">+</span>
-          </Button>
+            <span className="d-sm-none"></span>
+          </button>
 
-          <Button variant="outline-secondary" disabled className="px-3">
+          <button variant="outline-secondary" disabled className="px-3">
             <strong>{currentVotes}</strong>
-          </Button>
+          </button>
 
-          <Button
+          <button
             variant="outline-danger"
             size="sm"
             disabled={isLoading}
@@ -78,9 +77,9 @@ export const Votes = ({ id, votes }) => {
             className="d-flex align-items-center">
             <i className="bi bi-arrow-down me-1" aria-hidden="true"></i>
             <span className="d-none d-sm-inline">Downvote</span>
-            <span className="d-sm-none">-</span>
-          </Button>
-        </ButtonGroup>
+            <span className="d-sm-none"></span>
+          </button>
+        </div>
       </div>
     </>
   );

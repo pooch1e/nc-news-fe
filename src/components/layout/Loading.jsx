@@ -1,11 +1,10 @@
-import { Container, Spinner } from 'react-bootstrap';
 export const Loading = () => {
   return (
-    <Container className="d-flex justify-content-center align-items-center">
+    <div className="d-flex justify-content-center align-items-center">
       <div className="text-center">
-        <Spinner animation="border" role="status" variant="primary" />
+        {/* add spinner or animation */}
         <p className="mt-3">Loading...</p>
       </div>
-    </Container>
+    </div>
   );
 };

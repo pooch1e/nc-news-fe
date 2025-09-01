@@ -1,24 +1,18 @@
-import { NavStyles } from './NavStyles';
-import { Navbar } from './Navbar';
-import { Container, Row, Col } from 'react-bootstrap';
+
 import { Link } from 'react-router-dom';
+import { NavigationBar } from '../ui/NavigationBar';
 export const Header = () => {
   return (
-    <header>
-      <Container fluid>
-        <Row className="mt-4">
-          <Col>
-            <section className="header-container">
-              <Link to={`/`} className='text-decoration-none'>
-                <h1 className="text-dark">NC News</h1>
-              </Link>
-              <NavStyles>
-                <Navbar />
-              </NavStyles>
-            </section>
-          </Col>
-        </Row>
-      </Container>
+    <header className="p-4 border-1">
+      <div className='flex flex-row items-center justify-between'>
+      <Link to={`/`} className="text-decoration-none">
+        <h1 className="text-6xl">Nc News</h1>
+      </Link>
+      
+      <img src="/src/assets/icons8-news-200.svg"  alt="news icon glyph" />
+      
+      </div>
+      <NavigationBar/>
     </header>
   );
 };
