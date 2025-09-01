@@ -53,8 +53,8 @@ export const Votes = ({ id, votes }) => {
 
   return (
     <>
-      <div className="votes-container">
-        <div size="sm" className="me-3">
+      <div className="flex">
+        <div className="justify-center align-middle text-center">
           <button
             variant="outline-success"
             disabled={isLoading}
@@ -62,7 +62,7 @@ export const Votes = ({ id, votes }) => {
             onClick={() => handleUpvote(1)}>
             <i className="bi bi-arrow-up me-1" aria-hidden="true"></i>
             <span className="d-none d-sm-inline">Upvote</span>
-            <span className="d-sm-none">+</span>
+            <span className="d-sm-none"></span>
           </button>
 
           <button variant="outline-secondary" disabled className="px-3">
@@ -77,7 +77,7 @@ export const Votes = ({ id, votes }) => {
             className="d-flex align-items-center">
             <i className="bi bi-arrow-down me-1" aria-hidden="true"></i>
             <span className="d-none d-sm-inline">Downvote</span>
-            <span className="d-sm-none">-</span>
+            <span className="d-sm-none"></span>
           </button>
         </div>
       </div>
