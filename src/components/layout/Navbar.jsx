@@ -31,7 +31,7 @@ export const Navbar = () => {
         <div className="">
           <Hamburger onClick={toggleHamburger} />
         </div>
-        <div in={isOpen}>
+        <div>
           <div className="mb-4">
             <nav className="navigation">
               <div className="shadow-sm">
@@ -43,7 +43,7 @@ export const Navbar = () => {
                         const isActive = currentPage === topic.slug;
                         return (
                           <li
-                            as={'li'}
+                            
                             key={index}
                             action
                             className={`border-0 py-2 px-3 fs-5 link-offset-2 link-underline link-underline-opacity-25 ${
