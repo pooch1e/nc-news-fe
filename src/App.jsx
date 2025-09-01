@@ -5,9 +5,9 @@ import { Routes, Route } from 'react-router-dom';
 import { Layout } from './components/layout/Layout';
 import { Header } from './components/layout/Header';
 import { PageNotFound } from './components/layout/PageNotFound';
-import { Article } from '../src/components/articles/Article';
-import { Footer } from './components/layout/Footer';
-import { TopicPage } from './components/topics/TopicPage';
+import { Article } from '../src/components/features/articles/Article';
+
+import { TopicPage } from './components/features/topics/TopicPage';
 import { UserProvider } from './context/userContext';
 
 function App() {

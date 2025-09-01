@@ -1,5 +1,5 @@
 import { Votes } from '../articles/Votes';
-import { VoteTypeContext } from '../../context/VoteTypeContext';
+import { VoteTypeContext } from '../../../context/VoteTypeContext';
 
 import { DeleteButton } from './DeleteButton';
 import { useContext } from 'react';

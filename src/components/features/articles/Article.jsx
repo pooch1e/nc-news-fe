@@ -1,9 +1,9 @@
 import { useParams } from 'react-router-dom';
 
-import { VoteTypeContext } from '../../context/VoteTypeContext';
+import { VoteTypeContext } from '../../../context/VoteTypeContext';
 import { Votes } from './Votes';
 import { CommentsSection } from '../comments/CommentsSection';
-import { useArticleApi } from '../../Hooks/useArticleApi';
+import { useArticleApi } from '../../../Hooks/useArticleApi';
 
 export const Article = () => {
   const { article_id } = useParams();
@@ -125,8 +125,8 @@ export const Article = () => {
 
             {/* Comments Section */}
             <div className="mt-8">
-              <CommentsSection 
-                articleId={article_id} 
+              <CommentsSection
+                articleId={article_id}
                 commentCount={singleArticle.comment_count}
               />
             </div>

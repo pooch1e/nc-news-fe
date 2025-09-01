@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { useVoteType } from '../../context/VoteTypeContext';
-import { updateVoteById } from '../../utils/updateVoteById';
-import { Error } from '../layout/Error';
+import { useVoteType } from '../../../context/VoteTypeContext';
+import { updateVoteById } from '../../../utils/updateVoteById';
+import { Error } from '../../layout/Error';
 export const Votes = ({ id, votes }) => {
   const voteType = useVoteType(); // comment or article depending on where clicked
 

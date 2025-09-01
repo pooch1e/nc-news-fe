@@ -1,8 +1,8 @@
 import { useState, useContext } from 'react';
-import { postCommentOrArticleById } from '../../utils/postById';
-import { useRefresh } from '../../context/refreshContext';
-import { UserContext } from '../../context/userContext';
-import { Button } from '../ui/Button';
+import { postCommentOrArticleById } from '../../../utils/postById';
+import { useRefresh } from '../../../context/refreshContext';
+import { UserContext } from '../../../context/userContext';
+import { Button } from '../../ui/Button';
 
 export const CommentForm = ({ articleId, onCommentAdded, onCancel }) => {
   const { loggedInUser } = useContext(UserContext);

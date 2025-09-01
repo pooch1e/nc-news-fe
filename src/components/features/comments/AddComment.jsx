@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import { CommentForm } from './CommentForm';
-import { Button } from '../ui/Button';
-import { UserContext } from '../../context/userContext';
+import { Button } from '../../ui/Button';
+import { UserContext } from '../../../context/userContext';
 
 export const AddComment = ({ articleId }) => {
   const [showForm, setShowForm] = useState(false);
@@ -9,7 +9,7 @@ export const AddComment = ({ articleId }) => {
   const isLoggedIn = loggedInUser?.name === 'tickle122';
 
   const handleToggleForm = () => {
-    setShowForm(prev => !prev);
+    setShowForm((prev) => !prev);
   };
 
   const handleCommentAdded = (newComment) => {
@@ -58,8 +58,7 @@ export const AddComment = ({ articleId }) => {
               variant="primary"
               size="sm"
               onClick={handleToggleForm}
-              className="flex items-center space-x-2"
-            >
+              className="flex items-center space-x-2">
               <span>Add Comment</span>
             </Button>
           </div>

@@ -1,7 +1,7 @@
 import { CommentStyles } from './CommentStyles';
-import { useCommentApi } from '../../Hooks/useCommentApi';
-import { Loading } from '../layout/Loading';
-import { Error } from '../layout/Error';
+import { useCommentApi } from '../../../Hooks/useCommentApi';
+import { Loading } from '../../layout/Loading';
+import { Error } from '../../layout/Error';
 export const FetchComments = ({ article_id }) => {
   const { comments, isLoading, isError, removeFromCommentsList } =
     useCommentApi({ article_id });

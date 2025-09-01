@@ -1,6 +1,6 @@
 import { ArticleCard } from './ArticleCard';
-import { VoteTypeContext } from '../../context/VoteTypeContext';
-import { Button } from '../ui/Button';
+import { VoteTypeContext } from '../../../context/VoteTypeContext';
+import { Button } from '../../ui/Button';
 
 export const ArticleStyles = ({
   articles,
